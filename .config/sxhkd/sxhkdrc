@@ -1,0 +1,135 @@
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+super + Return
+    termite 
+
+# program launcher
+super + @d
+    rofi -width 20 -show run
+
+# make sxhkd reload its configuration files:
+super + Escape
+    pkill -USR1 -x sxhkd
+
+#
+# bspwm hotkeys
+#
+
+# close and kill
+super + {_,shift + }w
+    bspc node -{c,k}
+
+# alternate between the tiled and monocle layout
+super + m
+    bspc desktop -l next
+
+#
+# state/flags
+#
+
+# set the window state
+super + {t,shift + t,s,f}
+    bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+#
+# focus/swap
+#
+
+# move focus
+super + {Left,Down,Right,Up}
+    bspc node -f {west,south,east,north}
+
+# focus the node in the given direction
+super + shift + Left
+    bspc node --swap west.local || bspc node --to-monitor west -f --rotate east 180
+super + shift + Down
+    bspc node --swap south
+super + shift + Up
+    bspc node --swap north
+super + shift + Right
+    bspc node --swap east.local || bspc node --to-monitor east -f
+
+# focus the next/previous node in the current desktop
+super + {_,shift + }c
+    bspc node -f {next,prev}.local
+
+# focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+    bspc desktop -f {prev,next}.local
+
+# focus the last node/desktop
+super + {grave,Tab}
+    bspc {node,desktop} -f last
+
+# focus the older or newer node in the focus history
+super + {o,i}
+    bspc wm -h off; \
+    bspc node {older,newer} -f; \
+    bspc wm -h on
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9}
+    bspc {desktop -f,node -d} '^{1-9}'
+
+#
+# preselect
+#
+
+# preselect the direction
+super + ctrl + {h,j,k,l}
+    bspc node -p {west,south,north,east}
+
+# preselect the ratio
+super + ctrl + {1-9}
+    bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+    bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+super + ctrl + shift + space
+    bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+#
+# move/resize
+#
+super + alt + Left
+    bspc node @west -r -40 || bspc node @east -r -40
+super + alt + Down
+    bspc node @north -r +40 || bspc node @south -r +40
+super + alt + Up
+    bspc node @north -r -40 || bspc node @south -r -40
+super + alt + Right
+    bspc node @west -r +40 || bspc node @east -r +40
+
+## expand a window by moving one of its side outward
+#super + alt + {Left,Down,Up,Right}
+#   bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+#
+## contract a window by moving one of its side inward
+#super + alt + shift + {Left,Down,Up,Right}
+#   bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+    bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# increase window spacing
+super + equal
+    cur=$(bspc config -d focused window_gap) && new=$((cur + 5)) && bspc config -d focused window_gap $new
+
+# decrease window spacing
+super + minus
+    cur=$(bspc config -d focused window_gap) && new=$((cur - 5)) && bspc config -d focused window_gap $new
+
+# reset window spacing
+super + 0
+    bspc config -d focused window_gap 30
+
+# rotate desktop
+super + r
+    bspc node @/ -R 90
