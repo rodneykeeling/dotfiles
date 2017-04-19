@@ -128,7 +128,7 @@ super + minus
 
 # reset window spacing
 super + 0
-    bspc config -d focused window_gap 30
+    bspc config -d focused window_gap 60
 
 # rotate desktop
 super + r
