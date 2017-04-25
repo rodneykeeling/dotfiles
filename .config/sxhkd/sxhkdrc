@@ -133,3 +133,7 @@ super + 0
 # rotate desktop
 super + r
     bspc node @/ -R 90
+
+# rotate current
+super + shift + r
+    bspc node @parent -R 90
