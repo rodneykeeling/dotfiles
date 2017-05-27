@@ -9,7 +9,7 @@ mpd_music_dir = "/home/rodney/Music"
 # Display ..
 #song_list_format = "• %t $R%A $0"
 song_list_format = "{%t} ∷ {%a} $R {%b}"
-song_columns_list_format = "(32)[]{t|f} (62)[]{a} (1)[]{l}"
+song_columns_list_format = "(50)[]{t|f} (40)[]{a} (1)[]{l}"
 song_status_format = " $6%t $0 "
 playlist_display_mode = "columns" (classic/columns)
 #alternative_header_first_line_format = ""
