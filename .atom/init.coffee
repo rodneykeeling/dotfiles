@@ -12,10 +12,10 @@
 
 atom.commands.add 'atom-text-editor',
   'user:toggle-vim-mode': (event) ->
-    if atom.packages.isPackageDisabled("vim-mode")
-      atom.packages.enablePackage("vim-mode")
+    if atom.packages.isPackageDisabled("vim-mode-plus")
+      atom.packages.enablePackage("vim-mode-plus")
     else
-      atom.packages.disablePackage("vim-mode")
+      atom.packages.disablePackage("vim-mode-plus")
 
 atom.workspace.observeTextEditors (editor) ->
     atom.contextMenu.add {
@@ -24,5 +24,14 @@ atom.workspace.observeTextEditors (editor) ->
             {label: 'Fold at level 2', command: 'editor:fold-at-indent-level-2'},
             {label: 'Unfold All', command: 'editor:unfold-all'},
             {label: 'Toggle Vim Mode', command: 'user:toggle-vim-mode'},
+        ]
+    },
+    atom.contextMenu.remove {
+        'atom-text-editor': [
+            'Change Encoding',
+            'Correct Spelling',
+            'Show In File Manager',
+            'View Unstaged Changes',
+            'View Staged Changes',
         ]
     }
