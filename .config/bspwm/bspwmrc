@@ -3,7 +3,8 @@
 sxhkd &
 $HOME/.config/polybar/launch.sh &
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor DP-2 -d 1 2 3 4 5
+bspc monitor DP-4 -d 6
 
 bspc config border_width            2
 bspc config window_gap              60
@@ -17,10 +18,13 @@ bspc config click_to_focus          true
 bspc config borderless_monocle      true
 bspc config gapless_monocle         false
 
-# always float xfce4-datetime-plugin window
+# app-specific rules
 bspc rule -a Wrapper-2.0 state=floating
 bspc rule -a Gpick state=floating
 bspc rule -a Timeshift-gtk state=floating
+bspc rule -a Pavucontrol state=floating
+#bspc rule -a Spotify pseudo_tiled=on desktop='^6'
+#bspc rule -a Firefox pseudo_tiled=on
 
 # plank dock on top
-bspc rule -a Plank layer=above manage=on border=off
+#bspc rule -a Plank layer=above manage=on border=off
