@@ -2,6 +2,7 @@
 
 sxhkd &
 $HOME/.config/polybar/launch.sh &
+killall xfce4-panel &
 
 bspc monitor DP-2 -d 1 2 3 4 5
 bspc monitor DP-4 -d 6

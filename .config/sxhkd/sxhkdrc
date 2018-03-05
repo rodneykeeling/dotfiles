@@ -150,3 +150,10 @@ super + r
 # rotate current
 super + shift + r
     bspc node @parent -R 90
+
+# volume
+XF86AudioRaiseVolume
+    pactl set-sink-volume 2 +3%
+
+XF86AudioLowerVolume
+    pactl set-sink-volume 2 -3%
