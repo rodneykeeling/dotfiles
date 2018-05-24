@@ -1,19 +1,18 @@
 [colors]
-background = #1c202c
+background = #171717
 background-alt = #444
 foreground = #fbfbfc
 foreground-alt = #555
-primary = #F16B0A
+primary = #A16DF5
 secondary = #e60053
 alert = #bd2c40
 
 [bar/bar]
-monitor = ${env:MONITOR:DP-2}
-;width = 450
-width = 75%
-height = 25
-offset-x = 12.5%
-offset-y = 15px
+monitor = ${env:MONITOR:DP-4}
+width = 100%
+height = 30
+;offset-x = 12.5%
+;offset-y = 15px
 radius = 0
 fixed-center = true
 
@@ -32,8 +31,8 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Inconsolata:pixelsize=12;1
-font-1 = Inconsolata:fontformat=truetype:size=8:antialias=false;0
+font-0 = Inconsolata:fontformat=truetype:style=bold:pixelsize=12:antialias=true;0
+font-1 = Inconsolata:fontformat=truetype:style=bold:size=8:antialias=true;0
 font-2 = FontAwesome:fontformat=truetype:size=12;0"
 
 modules-left = bspwm
@@ -73,10 +72,8 @@ type = internal/date
 interval = 5
 
 date = "%A %Y-%m-%d"
-date-alt = " %Y-%m-%d"
 
 time = %I:%M %p
-time-alt = %I:%M %p
 
 format-prefix-foreground = ${colors.foreground}
 
