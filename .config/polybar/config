@@ -1,9 +1,12 @@
 [colors]
-background = #0E1318
+#background = #1C1E26
+#background = #212121
+background = #0F1419
 background-alt = #444
-foreground = #f6f6f6
+foreground = #ffffff
 foreground-alt = #555
-primary = #A16DF5
+#primary = #BA95F5
+primary = #F2590C
 secondary = #e60053
 alert = #bd2c40
 
@@ -31,11 +34,11 @@ padding-right = 1
 
 font-0 = Inconsolata:fontformat=truetype:style=bold:pixelsize=12:antialias=true;0
 font-1 = Inconsolata:fontformat=truetype:style=bold:size=8:antialias=true;0
-font-2 = FontAwesome:fontformat=truetype:size=12;0"
+font-2 = "Font Awesome 5 Free:style=Solid:fontformat=truetype:size=10;0"
 
 modules-left = bspwm
-modules-center = date
-modules-right = vpn wireless-network battery pulse
+modules-center = date utc
+modules-right = vpn wireless-network kube battery pulse
 
 tray-position = right
 tray-padding = 2
@@ -49,15 +52,23 @@ type = custom/script
 exec = $HOME/.config/polybar/pulseaudio-tail.sh
 interval = 3
 tail = true
-label-underline = #E5D7FC
+label-underline = #F6F1FE
 label-padding = 2
 
 scroll-down = $HOME/.config/polybar/pulseaudio-tail.sh --down
 scroll-up = $HOME/.config/polybar/pulseaudio-tail.sh --up
 
+[module/kube]
+type = custom/script
+exec = $HOME/.config/polybar/kube.sh
+interval = 5
+label =  %output%
+label-underline = #C3A2F8
+label-padding = 2
+
 [module/bspwm]
 type = internal/bspwm
-enable-click = false
+enable-click = true
 pin-workspaces = true
 
 label-focused = %index%
@@ -84,6 +95,12 @@ time = %I:%M %p
 format-prefix-foreground = ${colors.foreground}
 label = %date% %time%
 
+[module/utc]
+type = custom/script
+interval = 5
+exec = TZ=UTC date "+%I:%M %p %Z"
+label = " (%output%)"
+label-foreground = ${colors.foreground-alt}
 
 [module/vpn]
 type = custom/script
@@ -91,6 +108,8 @@ exec = $HOME/.config/polybar/get-vpn.sh
 interval = 9
 click-left = $HOME/.config/polybar/connect-vpn.sh
 label =  %output%
+label-underline= #67469C
+label-padding = 2
 
 
 [module/battery]
@@ -148,11 +167,11 @@ label-charging-padding = 2
 ;   %time%
 ;   %consumption% (shows current discharge rate in watts)
 label-discharging =  %percentage%%
-label-discharging-underline = #C3A2F8
+label-discharging-underline = #E5D7FC
 label-discharging-padding = 2
 
 label-full =  %percentage%%
-label-full-underline = #C3A2F8
+label-full-underline = #E5D7FC
 label-full-padding = 2
 
 
@@ -167,11 +186,13 @@ interval = 3.0
 format-connected = <label-connected>
 label-connected-underline = #A16DF5
 label-connected =  %essid%
+label-padding = 2
+label-connected-padding = 2
 ;label-connected = %{A1:nm-applet:}%essid%%{A}
 
 ; Available tags:
 ;   <label-disconnected> (default)
-format-disconnected = ''
+;format-disconnected = ''
 
 
 [settings]

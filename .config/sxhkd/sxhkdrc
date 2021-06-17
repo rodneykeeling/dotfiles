@@ -8,11 +8,15 @@ super + Return
 
 # program launcher
 super + @d
-    rofi -width 20 -show run
+    rofi -width 20 -show run -display-run ">"
 
 # make sxhkd reload its configuration files:
 super + Escape
     pkill -USR1 -x sxhkd
+
+# i3lock
+super + shift + x
+    i3lock-fancy -p -- scrot -z -o
 
 #
 # bspwm hotkeys
@@ -141,7 +145,7 @@ super + minus
 
 # reset window spacing
 super + 0
-    bspc config -d focused window_gap 60
+    bspc config -d focused window_gap 30
 
 # rotate desktop
 super + r
@@ -153,7 +157,27 @@ super + shift + r
 
 # volume
 XF86AudioRaiseVolume
-    pactl set-sink-volume 2 +3%
+    amixer -q set Master 3%+ on
 
 XF86AudioLowerVolume
-    pactl set-sink-volume 2 -3%
+    amixer -q set Master 3%- on
+
+XF86MonBrightnessUp
+    xbacklight -inc 100
+
+XF86MonBrightnessDown
+    xbacklight -dec 100
+
+# productivity mode
+super + F12
+    bspc config window_gap 0
+    bspc config top_padding 29
+    bspc config border_width 1
+    bspc config focused_border_color \#666a80
+
+# normal mode
+super + F11
+    bspc config window_gap 30
+    bspc config top_padding 15
+    bspc config border_width 2
+    bspc config focused_border_color \#f4eeeb
