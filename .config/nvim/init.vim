@@ -1,4 +1,6 @@
-" vim-plug plugin management
+" dont set cursor shape to block
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
+
 call plug#begin('~/.vim/plugged')
 " themes/colors
 Plug 'ayu-theme/ayu-vim', { 'dir': '~/.vim/colors/ayu-vim' }
@@ -10,12 +12,11 @@ Plug 'rakr/vim-one', { 'dir': '~/.vim/colors/vim-one' }
 
 " tooling
 let g:polyglot_disabled = ['markdown']
+Plug 'airblade/vim-gitgutter'
+Plug 'ruanyl/vim-gh-line'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/Efficient-python-folding'
 Plug 'Yggdroot/indentLine'
-Plug 'ruanyl/vim-gh-line'
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " Enable filetype plugin
@@ -65,7 +66,6 @@ set encoding=utf-8
 set background=dark
 set termguicolors
 set guicursor=
-"set term=xterm-256color
 let ayucolor="dark"
 colorscheme ayu
 
@@ -77,7 +77,6 @@ set foldlevel=20         "this is just what i use
 map ` ^
 
 " vim indent guide stuff
-set ts=4 sw=4 et
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black   ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=236
 
@@ -87,7 +86,6 @@ set fillchars=""
 let g:vim_json_syntax_conceal = 0
 
 " dont show filename/info in bottom left when opening file
-"set shortmess=a
 set shortmess=F
 set cmdheight=1
 
@@ -106,8 +104,7 @@ let g:indentLine_setColors = 0
 " allow mousewheel scrolling in tmux+vim
 set mouse=a
 
-" set underscore as keyword for snake_case `w` movement
-"set iskeyword-=_
-
 " <leader>c to print current class name
 nnoremap <leader>c :<c-u>echo trim(getline(search('^class', 'bnW')))<cr>
+" <leader>gg to toggle GitGutterSignsToggle
+nnoremap <leader>gg :GitGutterSignsToggle<cr>
