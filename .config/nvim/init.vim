@@ -11,12 +11,19 @@ Plug 'ntk148v/vim-horizon'
 Plug 'rakr/vim-one', { 'dir': '~/.vim/colors/vim-one' }
 
 " tooling
-let g:polyglot_disabled = ['markdown']
 Plug 'airblade/vim-gitgutter'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'ruanyl/vim-gh-line'
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/Efficient-python-folding'
 Plug 'Yggdroot/indentLine'
+
+" telescope + deps
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 call plug#end()
 
 " Enable filetype plugin
@@ -52,7 +59,7 @@ set lbr
 set tw=500
 
 set ai "Auto indent
-set wrap "Wrap lines
+set nowrap
 
 " Always hide the statusline
 set laststatus=0
@@ -97,7 +104,7 @@ let g:pymode_options_colorcolumn = 0 " disable line length color column
 " IndentLine {{
 let g:indentLine_char = '▏'
 let g:indentLine_first_char = '▏'
-let g:indentLine_showFirstIndentLevel = 2
+let g:indentLine_showFirstIndentLevel = 0
 let g:indentLine_setColors = 0
 " }}
 
@@ -108,3 +115,30 @@ set mouse=a
 nnoremap <leader>c :<c-u>echo trim(getline(search('^class', 'bnW')))<cr>
 " <leader>gg to toggle GitGutterSignsToggle
 nnoremap <leader>gg :GitGutterSignsToggle<cr>
+
+lua require'lspconfig'.pyright.setup{}
+
+" LSP diagnostics show only on hover
+lua <<EOF
+ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = false,
+        signs = false, 
+    }
+)
+vim.cmd [[set updatetime=200 | autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]]
+vim.cmd [[set updatetime=200 | autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()]]
+EOF
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = { "python", "graphql", "yaml", "bash", "go", "typescript", "javascript", "query", },
+    highlight = {
+        enable = true,              -- false will disable the whole extension
+        disable = { "python" },  -- list of language that will be disabled
+    },
+    indent = {
+        enable = true
+    },
+}
+EOF
