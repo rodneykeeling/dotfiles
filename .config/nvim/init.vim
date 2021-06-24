@@ -3,26 +3,26 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
 
 call plug#begin('~/.vim/plugged')
 " themes/colors
-Plug 'ayu-theme/ayu-vim', { 'dir': '~/.vim/colors/ayu-vim' }
-Plug 'drewtempelmeyer/palenight.vim', { 'dir': '~/.vim/colors/palenight' }
-Plug 'gosukiwi/vim-atom-dark', { 'dir': '~/.vim/colors/vim-atom-dark' }
-Plug 'joshdick/onedark.vim', { 'dir': '~/.vim/colors/onedark' }
+Plug 'ayu-theme/ayu-vim'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'gosukiwi/vim-atom-dark'
+Plug 'joshdick/onedark.vim'
 Plug 'ntk148v/vim-horizon'
-Plug 'rakr/vim-one', { 'dir': '~/.vim/colors/vim-one' }
+Plug 'rakr/vim-one'
 
 " tooling
 Plug 'airblade/vim-gitgutter'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'ruanyl/vim-gh-line'
-"Plug 'sheerun/vim-polyglot'
-Plug 'vim-scripts/Efficient-python-folding'
+"Plug 'vim-scripts/Efficient-python-folding'
 Plug 'Yggdroot/indentLine'
 
 " telescope + deps
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make', 'branch': 'main' }
 
 call plug#end()
 
@@ -74,7 +74,7 @@ set background=dark
 set termguicolors
 set guicursor=
 let ayucolor="dark"
-colorscheme ayu
+colorscheme horizon
 
 "folding settings
 set foldmethod=indent   "fold based on indent
@@ -111,16 +111,21 @@ let g:indentLine_setColors = 0
 " allow mousewheel scrolling in tmux+vim
 set mouse=a
 
+" map leader key to Space
+let mapleader = " "
+
 " <leader>c to print current class name
 nnoremap <leader>c :<c-u>echo trim(getline(search('^class', 'bnW')))<cr>
 " <leader>gg to toggle GitGutterSignsToggle
 nnoremap <leader>gg :GitGutterSignsToggle<cr>
+" <leader>gd to goto defn via neovim lsp
+nnoremap <leader>d <cmd>lua vim.lsp.buf.definition()<cr>
 
 lua require'lspconfig'.pyright.setup{}
 
 " LSP diagnostics show only on hover
 lua <<EOF
- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
         virtual_text = false,
         signs = false, 
@@ -132,13 +137,44 @@ EOF
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = { "python", "graphql", "yaml", "bash", "go", "typescript", "javascript", "query", },
+    ensure_installed = { 'bash', 'dockerfile', 'go', 'graphql', 'javascript', 'json', 'lua', 'python', 'query', 'typescript', 'yaml', },
     highlight = {
         enable = true,              -- false will disable the whole extension
-        disable = { "python" },  -- list of language that will be disabled
+        --disable = { 'python' },  -- list of language that will be disabled
     },
     indent = {
         enable = true
     },
 }
 EOF
+
+lua <<EOF
+require('telescope').setup {
+    pickers = {
+        find_files = {
+            theme = 'dropdown'
+        },
+        git_files = {
+            theme = 'dropdown'
+        },
+        live_grep = {
+            theme = 'dropdown'
+        },
+    },
+    extensions = {
+        fzf = {
+            fuzzy = true,                    -- false will only do exact matching
+            override_generic_sorter = false, -- override the generic sorter
+            override_file_sorter = true,     -- override the file sorter
+            case_mode = 'smart_case',        -- or 'ignore_case' or 'respect_case'
+            -- the default case_mode is 'smart_case'
+            }
+        }
+    }
+-- To get fzf loaded and working with telescope, you need to call
+-- load_extension, somewhere after setup function:
+require('telescope').load_extension('fzf')
+EOF
+
+nnoremap <leader>ff <cmd>Telescope git_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
