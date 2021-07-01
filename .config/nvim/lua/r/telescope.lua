@@ -3,9 +3,11 @@ local map = vim.api.nvim_set_keymap
 require('telescope').setup {
     pickers = {
         find_files = {
+            previewer = false,
             theme = 'dropdown'
         },
         git_files = {
+            previewer = false,
             theme = 'dropdown'
         },
         live_grep = {

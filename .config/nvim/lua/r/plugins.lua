@@ -10,6 +10,9 @@ require 'paq-nvim' {
 
     -- tooling;
     {'airblade/vim-gitgutter'};
+    {'davidhalter/jedi'};
+    {'fatih/vim-go'};
+    {'hrsh7th/nvim-compe'};
     {'kyazdani42/nvim-web-devicons'};
     {'neovim/nvim-lspconfig'};
     {'nvim-treesitter/nvim-treesitter', run=':TSUpdate'};
@@ -21,5 +24,3 @@ require 'paq-nvim' {
     {'nvim-telescope/telescope.nvim'};
     {'nvim-telescope/telescope-fzf-native.nvim', run='make', branch='main'};
 }
-
-

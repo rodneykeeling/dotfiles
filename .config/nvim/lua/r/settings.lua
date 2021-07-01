@@ -52,14 +52,13 @@ opt.fillchars = ''
 g.vim_json_syntax_conceal = 0
 
 -- dont show filename/info in bottom left when opening file
-opt.shortmess = 'F'
-opt.cmdheight = 1
+opt.shortmess = 'a'
+opt.cmdheight = 2
 
 -- IndentLine
 g.indentLine_char = '▏'
 g.indentLine_first_char = '▏'
 g.indentLine_showFirstIndentLevel = 0
-g.indentLine_setColors = 0
 
 -- allow mousewheel scrolling in tmux+vim
 opt.mouse = 'a'

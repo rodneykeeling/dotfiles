@@ -1,4 +1,5 @@
 require'lspconfig'.pyright.setup{}
+require'lspconfig'.gopls.setup{}
 
 -- LSP diagnostics show only on hover
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
@@ -9,13 +10,12 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
 )
 
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = {
-        'bash', 'dockerfile', 'go', 'graphql', 'javascript', 'json', 'lua',
-        'python', 'query', 'typescript', 'yaml',
-    },
+    --ensure_installed = {
+    --    'bash', 'dockerfile', 'go', 'graphql', 'javascript', 'json', 'lua',
+    --    'python', 'query', 'typescript', 'yaml',
+    --},
     highlight = {
-        enable = true,              -- false will disable the whole extension
-        --disable = { 'python' },  -- list of language that will be disabled
+        enable = true,
     },
     indent = {
         enable = true

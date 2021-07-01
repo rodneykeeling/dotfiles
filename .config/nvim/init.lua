@@ -8,14 +8,23 @@ g.mapleader = ' '
 
 map('n', '`', '^', {})
 
--- <leader>c to print current class name
-map('n', '<leader>c', ':<c-u>echo trim(getline(search("^class", "bnW")))<cr>', {})
-map('n', '<leader>d', ':lua vim.lsp.buf.definition()<cr>', {})
-map('n', '<leader>e', ':lua vim.lsp.diagnostic.show_line_diagnostics()<cr>', {})
-map('n', '<leader>gg', ':GitGutterSignsToggle<cr>', {})
+-- <leader>c to print current python class name
+map('n', '<leader>c', '<cmd><c-u>echo trim(getline(search("^class", "bnW")))<cr>', {})
+map('n', '<leader>d', '<cmd>lua vim.lsp.buf.definition()<cr>', {})
+map('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>', {})
+map('n', '<leader>gg', '<cmd>GitGutterSignsToggle<cr>', {})
+
+-- <C-w> remaps
+map('n', '<leader>h', '<C-w>h', {})
+map('n', '<leader>j', '<C-w>j', {})
+map('n', '<leader>k', '<C-w>k', {})
+map('n', '<leader>l', '<C-w>l', {})
+
+vim.cmd[[highlight link CompeDocumentation Pmenu]]
 
 -- custom configs
-require('r.settings')
 require('r.plugins')
-require('r.telescope')
+require('r.settings')
 require('r.treesitter')
+require('r.completion')
+require('r.telescope')
