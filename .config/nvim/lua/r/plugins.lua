@@ -6,6 +6,7 @@ require 'paq-nvim' {
     {'gosukiwi/vim-atom-dark'};
     {'joshdick/onedark.vim'};
     {'ntk148v/vim-horizon'};
+    {'projekt0n/github-nvim-theme'};
     {'rakr/vim-one'};
 
     -- tooling;
@@ -14,6 +15,7 @@ require 'paq-nvim' {
     {'fatih/vim-go'};
     {'hrsh7th/nvim-compe'};
     {'kyazdani42/nvim-web-devicons'};
+    {'mhinz/vim-startify'};
     {'neovim/nvim-lspconfig'};
     {'nvim-treesitter/nvim-treesitter', run=':TSUpdate'};
     {'Yggdroot/indentLine'};

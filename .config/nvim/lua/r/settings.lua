@@ -1,12 +1,11 @@
-local opt = vim.opt
 local cmd = vim.cmd
+local fn = vim.fn
 local g = vim.g
+local opt = vim.opt
 
 opt.ruler = true
 opt.backspace = 'eol,start,indent'
 opt.ignorecase = true -- Ignore case when searching
-opt.hlsearch = true -- Highlight search things
-opt.incsearch = true -- Make search act like search in modern browsers
 opt.magic = true -- Set magic on, for regular expressions
 opt.showmatch = true -- Show matching bracets when text indicator is over them
 -- No sound on errors
@@ -28,15 +27,12 @@ opt.smarttab = true
 opt.lbr = true
 opt.tw = 500
 
-opt.ai = true -- Auto indent
 opt.wrap = false
 
 -- Always hide the statusline
 opt.laststatus = 0
 opt.statusline = '%t'
 
-opt.encoding = 'utf-8'
-opt.background = 'dark'
 opt.termguicolors = true
 opt.guicursor = ''
 g.ayucolor = 'dark'
@@ -52,8 +48,8 @@ opt.fillchars = ''
 g.vim_json_syntax_conceal = 0
 
 -- dont show filename/info in bottom left when opening file
-opt.shortmess = 'a'
-opt.cmdheight = 2
+opt.shortmess = 'F'
+opt.cmdheight = 1
 
 -- IndentLine
 g.indentLine_char = '▏'
@@ -62,3 +58,17 @@ g.indentLine_showFirstIndentLevel = 0
 
 -- allow mousewheel scrolling in tmux+vim
 opt.mouse = 'a'
+
+g.startify_list_order = {
+    {'Bookmarks'}, 'bookmarks',
+    {'MRU'}, 'files',
+    {'MRU ' .. fn.getcwd()}, 'dir',
+}
+g.startify_bookmarks = {
+    '~/.config/nvim/init.lua',
+    '~/.config/nvim/lua/r/plugins.lua',
+    '~/.config/nvim/lua/r/settings.lua',
+    '~/.zshrc',
+}
+g.startify_files_number = 5
+g.startify_custom_header = ''
