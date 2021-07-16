@@ -5,6 +5,7 @@ require 'paq-nvim' {
     {'drewtempelmeyer/palenight.vim'};
     {'gosukiwi/vim-atom-dark'};
     {'joshdick/onedark.vim'};
+    {'lilydjwg/colorizer'};
     {'ntk148v/vim-horizon'};
     {'projekt0n/github-nvim-theme'};
     {'rakr/vim-one'};

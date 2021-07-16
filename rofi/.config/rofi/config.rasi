@@ -54,10 +54,10 @@ configuration {
 /*	click-to-exit: true;*/
 /*	show-match: true;*/
 /*	theme: ;*/
-	color-normal: "#212121, #c4cbd4, #212121, #2f3240, #A16DF5";
-	color-urgent: "#212121, #cc6666, argb:e54b5160, #a54242, #f9f9f9";
-	color-active: "#212121, #2797B8, argb:e44b5160, #A16DF5, #f9f9f9";
-	color-window: "#212121, #f6f6f6, #1d1f21";
+	color-normal: "#1c1e26, #c4cbd4, #1c1e26, #2f3240, #A16DF5";
+	color-urgent: "#1c1e26, #cc6666, argb:e54b5160, #a54242, #f9f9f9";
+	color-active: "#1c1e26, #2797B8, argb:e44b5160, #A16DF5, #f9f9f9";
+	color-window: "#1c1e26, #f6f6f6, #1d1f21";
 /*	max-history-size: 25;*/
 /*	combi-hide-mode-prefix: false;*/
 /*	matching-negate-char: '-' /* unsupported */;*/

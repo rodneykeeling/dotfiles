@@ -12,7 +12,7 @@ opt.showmatch = true -- Show matching bracets when text indicator is over them
 opt.errorbells = false
 opt.visualbell = false
 opt.list = false
-opt.number = true
+opt.relativenumber = true
 
 -- Turn backup off
 opt.backup = false

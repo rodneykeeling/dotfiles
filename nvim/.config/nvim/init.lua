@@ -20,6 +20,11 @@ map('n', '<leader>j', '<C-w>j', {})
 map('n', '<leader>k', '<C-w>k', {})
 map('n', '<leader>l', '<C-w>l', {})
 
+-- tab stuff
+map('n', '<C-t>', '<cmd>tabnew<cr>', {})
+map('n', '<C-tab>', '<cmd>tabnext<cr>', {})
+map('n', '<C-S-tab>', '<cmd>tabprevious<cr>', {})
+
 vim.cmd[[highlight link CompeDocumentation Pmenu]]
 
 -- custom configs
@@ -28,3 +33,4 @@ require('r.settings')
 require('r.treesitter')
 require('r.completion')
 require('r.telescope')
+

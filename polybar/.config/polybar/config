@@ -58,6 +58,7 @@ label-padding = 2
 
 scroll-down = $HOME/.config/polybar/pulseaudio-tail.sh --down
 scroll-up = $HOME/.config/polybar/pulseaudio-tail.sh --up
+click-left = $HOME/.config/polybar/pulseaudio-tail.sh --profile
 
 [module/kube]
 type = custom/script
