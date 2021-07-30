@@ -12,6 +12,7 @@ opt.showmatch = true -- Show matching bracets when text indicator is over them
 opt.errorbells = false
 opt.visualbell = false
 opt.list = false
+opt.number = true
 opt.relativenumber = true
 
 -- Turn backup off
@@ -48,7 +49,7 @@ opt.fillchars = ''
 g.vim_json_syntax_conceal = 0
 
 -- dont show filename/info in bottom left when opening file
-opt.shortmess = 'F'
+opt.shortmess = 'aF'
 opt.cmdheight = 1
 
 -- IndentLine
@@ -68,7 +69,25 @@ g.startify_bookmarks = {
     '~/.config/nvim/init.lua',
     '~/.config/nvim/lua/r/plugins.lua',
     '~/.config/nvim/lua/r/settings.lua',
-    '~/.zshrc',
+    '~/.config/zsh/.zshrc',
 }
 g.startify_files_number = 5
 g.startify_custom_header = ''
+g.startify_change_to_vcs_root = 1
+
+vim.opt.termguicolors = true
+require("bufferline").setup{
+    options = {
+        numbers = "none",
+        close_icon = '',
+        show_buffer_close_icons = false,
+        show_buffer_icons = false,
+        show_tab_indicators = false,
+        always_show_bufferline = false,
+    },
+    highlights = {
+        buffer_selected = {
+            gui = "bold"
+        }
+    }
+}

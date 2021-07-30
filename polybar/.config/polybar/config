@@ -113,7 +113,6 @@ label =  %output%
 label-underline= #67469C
 label-padding = 2
 
-
 [module/battery]
 type = internal/battery
 
@@ -175,7 +174,6 @@ label-discharging-padding = 2
 label-full =  %percentage%%
 label-full-underline = #E5D7FC
 label-full-padding = 2
-
 
 [module/wireless-network]
 type = internal/network

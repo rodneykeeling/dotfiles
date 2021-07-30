@@ -9,6 +9,7 @@ require 'paq-nvim' {
     {'ntk148v/vim-horizon'};
     {'projekt0n/github-nvim-theme'};
     {'rakr/vim-one'};
+    {'akinsho/nvim-bufferline.lua'};
 
     -- tooling;
     {'airblade/vim-gitgutter'};

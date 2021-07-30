@@ -6,7 +6,10 @@ local map = vim.api.nvim_set_keymap
 map('n', '<Space>', '', {})
 g.mapleader = ' '
 
-map('n', '`', '^', {})
+map('n', '`', '0', {})
+
+map('n', 'n', 'nzz', { noremap = true })
+map('n', 'N', 'Nzz', { noremap = true })
 
 -- <leader>c to print current python class name
 map('n', '<leader>c', '<cmd><c-u>echo trim(getline(search("^class", "bnW")))<cr>', {})
@@ -20,17 +23,18 @@ map('n', '<leader>j', '<C-w>j', {})
 map('n', '<leader>k', '<C-w>k', {})
 map('n', '<leader>l', '<C-w>l', {})
 
--- tab stuff
-map('n', '<C-t>', '<cmd>tabnew<cr>', {})
-map('n', '<C-tab>', '<cmd>tabnext<cr>', {})
-map('n', '<C-S-tab>', '<cmd>tabprevious<cr>', {})
+-- buffer stuff
+map('n', '<C-t>', '<cmd>enew<cr>', {})
+map('n', '<C-tab>', '<cmd>bn<cr>', {})
+map('n', '<C-S-tab>', '<cmd>bp<cr>', {})
 
 vim.cmd[[highlight link CompeDocumentation Pmenu]]
+vim.cmd[[au BufRead,BufNewFile *.graphql,*.graphqls,*.gql setfiletype graphql]]
 
 -- custom configs
 require('r.plugins')
 require('r.settings')
+require('r.lsp')
 require('r.treesitter')
 require('r.completion')
 require('r.telescope')
-

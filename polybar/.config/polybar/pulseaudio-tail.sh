@@ -25,10 +25,10 @@ volume_mute() {
 
 toggle_profile() {
     update_profile
-    if [ $profile == 'output:hdmi-stereo' ]; then
-        pactl set-card-profile alsa_card.pci-0000_00_1f.3 output:hdmi-stereo-extra1
-    else
+    if [ $profile == 'output:hdmi-stereo-extra1' ]; then
         pactl set-card-profile alsa_card.pci-0000_00_1f.3 output:hdmi-stereo
+    else
+        pactl set-card-profile alsa_card.pci-0000_00_1f.3 output:hdmi-stereo-extra1
     fi
 }
 
