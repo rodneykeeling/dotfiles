@@ -7,8 +7,8 @@ configuration {
 	bw: 0;
 /*	location: 0;*/
 	padding: 0;
-	yoffset: -544;
-	xoffset: 10;
+	yoffset: -538;
+	xoffset: -10;
 /*	fixed-num-lines: true;*/
 /*	show-icons: false;*/
 /*	terminal: "rofi-sensible-terminal";*/
@@ -54,10 +54,10 @@ configuration {
 /*	click-to-exit: true;*/
 /*	show-match: true;*/
 /*	theme: ;*/
-	color-normal: "#1c1e26, #c4cbd4, #1c1e26, #2f3240, #A16DF5";
-	color-urgent: "#1c1e26, #cc6666, argb:e54b5160, #a54242, #f9f9f9";
-	color-active: "#1c1e26, #2797B8, argb:e44b5160, #A16DF5, #f9f9f9";
-	color-window: "#1c1e26, #f6f6f6, #1d1f21";
+	color-normal: "#282c34, #c4cbd4, #282c34, #2f3240, #c678dd";
+	color-urgent: "#282c34, #cc6666, argb:e54b5160, #a54242, #f9f9f9";
+	color-active: "#282c34, #2797B8, argb:e44b5160, #c678dd, #f9f9f9";
+	color-window: "#282c34, #f6f6f6, #1d1f21";
 /*	max-history-size: 25;*/
 /*	combi-hide-mode-prefix: false;*/
 /*	matching-negate-char: '-' /* unsupported */;*/

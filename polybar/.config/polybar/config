@@ -1,5 +1,5 @@
 [colors]
-background = #1C1E26
+background = #282c34
 #background = #212121
 #background = #0F1419
 background-alt = #444
@@ -7,7 +7,7 @@ foreground = #ffffff
 foreground-alt = #555
 #primary = #BA95F5
 #primary = #F2590C
-primary = #26BBD9
+primary = #98be65
 secondary = #e60053
 alert = #bd2c40
 
@@ -65,7 +65,7 @@ type = custom/script
 exec = $HOME/.config/polybar/kube.sh
 interval = 5
 label =  %output%
-label-underline = #C3A2F8
+label-underline = #c678dd
 label-padding = 2
 
 [module/bspwm]

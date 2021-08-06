@@ -14,6 +14,7 @@ opt.visualbell = false
 opt.list = false
 opt.number = true
 opt.relativenumber = true
+opt.hidden = true
 
 -- Turn backup off
 opt.backup = false
@@ -37,7 +38,7 @@ opt.statusline = '%t'
 opt.termguicolors = true
 opt.guicursor = ''
 g.ayucolor = 'dark'
-cmd 'colorscheme horizon'
+cmd 'colorscheme doom-one'
 
 -- folding settings
 opt.foldmethod = 'indent' -- fold based on indent
@@ -72,22 +73,49 @@ g.startify_bookmarks = {
     '~/.config/zsh/.zshrc',
 }
 g.startify_files_number = 5
-g.startify_custom_header = ''
 g.startify_change_to_vcs_root = 1
+g.startify_custom_header = ''
 
 vim.opt.termguicolors = true
-require("bufferline").setup{
+require('bufferline').setup{
     options = {
-        numbers = "none",
-        close_icon = '',
+        numbers = 'none',
+        show_close_icon = false,
         show_buffer_close_icons = false,
-        show_buffer_icons = false,
+        show_buffer_icons = true,
         show_tab_indicators = false,
         always_show_bufferline = false,
     },
     highlights = {
+        background = {
+            guibg = '#282c34',
+            guifg = '#555555',
+        },
         buffer_selected = {
-            gui = "bold"
-        }
+            gui = 'bold',
+            guifg = '#ffffff',
+        },
+        fill = {
+            guibg = '#282c34',
+            guifg = '#ffffff',
+        },
+        separator = {
+            guibg = '#282c34',
+            guifg = '#282c34',
+        },
+        modified = {
+            guibg = '#282c34',
+        },
+        duplicate = {
+            guibg = '#282c34',
+        },
+        pick = {
+            guibg = '#282c34',
+            guifg = '#ffffff',
+        },
+        pick_selected = {
+            guibg = '#282c34',
+            guifg = '#ffffff',
+        },
     }
 }

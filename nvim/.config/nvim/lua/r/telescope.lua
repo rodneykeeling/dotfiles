@@ -31,4 +31,4 @@ require('telescope').load_extension('fzf')
 map('n', '<leader>ff', [[<cmd>lua require'telescope.builtin'.find_files()<cr>]], {})
 -- set cwd to root of current buffer location
 map('n', '<leader>gf', [[<cmd>lua require'telescope.builtin'.git_files({ cwd = vim.fn.expand('%:p:h') })<cr>]], {})
-map('n', '<leader>fg', [[<cmd>lua require'telescope.builtin'.live_grep()<cr>]], {})
+map('n', '<leader>rg', [[<cmd>lua require'telescope.builtin'.live_grep()<cr>]], {})

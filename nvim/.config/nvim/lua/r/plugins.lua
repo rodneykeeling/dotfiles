@@ -10,6 +10,7 @@ require 'paq-nvim' {
     {'projekt0n/github-nvim-theme'};
     {'rakr/vim-one'};
     {'akinsho/nvim-bufferline.lua'};
+    {'romgrk/doom-one.vim'};
 
     -- tooling;
     {'airblade/vim-gitgutter'};
