@@ -61,6 +61,10 @@ g.indentLine_showFirstIndentLevel = 0
 -- allow mousewheel scrolling in tmux+vim
 opt.mouse = 'a'
 
+-- colorscheme overrides
+cmd[[ highlight LspDiagnosticsDefaultError guifg=#ff6c6b ]]
+
+-- plugin-specific settings
 g.startify_list_order = {
     {'Bookmarks'}, 'bookmarks',
     {'MRU'}, 'files',
@@ -85,6 +89,8 @@ require('bufferline').setup{
         show_buffer_icons = true,
         show_tab_indicators = false,
         always_show_bufferline = false,
+        left_trunc_marker = '',
+        right_trunc_marker = '',
     },
     highlights = {
         background = {

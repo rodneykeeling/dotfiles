@@ -1,6 +1,7 @@
 
 require'lspconfig'.pyright.setup{}
 require'lspconfig'.gopls.setup{}
+require'lspconfig'.rust_analyzer.setup{}
 require'lspconfig'.tsserver.setup{}
 
 -- LSP diagnostics show only on hover

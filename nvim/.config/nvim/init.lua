@@ -26,7 +26,7 @@ map('n', '<leader>l', '<C-w>l', {})
 
 -- buffer stuff
 map('n', '<leader><tab>', '<cmd>bn<cr>', {})
-map('n', 'bn', '<cmd>BufferLinePick<cr>', {})
+map('n', '<leader>b', '<cmd>BufferLinePick<cr>', {})
 
 vim.cmd[[highlight link CompeDocumentation Pmenu]]
 vim.cmd[[au BufRead,BufNewFile *.graphql,*.graphqls,*.gql setfiletype graphql]]
