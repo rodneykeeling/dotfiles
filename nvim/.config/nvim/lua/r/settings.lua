@@ -48,6 +48,7 @@ opt.fillchars = ''
 
 -- disable doublequote hiding in json files
 g.vim_json_syntax_conceal = 0
+g.vim_markdown_conceal = 0
 
 -- dont show filename/info in bottom left when opening file
 opt.shortmess = 'aF'

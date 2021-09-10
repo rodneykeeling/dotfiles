@@ -7,6 +7,7 @@ map('n', '<Space>', '', {})
 g.mapleader = ' '
 
 map('n', '`', '0', {})
+map('n', ';', ':', { noremap = true })
 
 map('n', 'n', 'nzz', { noremap = true })
 map('n', 'N', 'Nzz', { noremap = true })
@@ -16,6 +17,7 @@ map('n', '<leader>c', '<cmd><c-u>echo trim(getline(search("^class", "bnW")))<cr>
 map('n', '<leader>d', '<cmd>lua vim.lsp.buf.definition()<cr>', {})
 map('n', '<leader>r', '<cmd>lua vim.lsp.buf.references()<cr>', {})
 map('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>', {})
+map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', {})
 map('n', '<leader>gg', '<cmd>GitGutterSignsToggle<cr>', {})
 
 -- <C-w> remaps
