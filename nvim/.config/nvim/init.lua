@@ -19,6 +19,7 @@ map('n', '<leader>r', '<cmd>lua vim.lsp.buf.references()<cr>', {})
 map('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>', {})
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', {})
 map('n', '<leader>gg', '<cmd>GitGutterSignsToggle<cr>', {})
+map('n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting()<cr>', {})
 
 -- <C-w> remaps
 map('n', '<leader>h', '<C-w>h', {})
