@@ -126,3 +126,5 @@ require('bufferline').setup{
         },
     }
 }
+
+require('Comment').setup()

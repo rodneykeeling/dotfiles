@@ -22,6 +22,7 @@ require 'paq-nvim' {
     {'neovim/nvim-lspconfig'};
     {'nvim-treesitter/nvim-treesitter', run=':TSUpdate'};
     {'Yggdroot/indentLine'};
+    {'numToStr/Comment.nvim'};
 
     -- telescope + deps
     {'nvim-lua/popup.nvim'};
