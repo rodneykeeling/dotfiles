@@ -16,13 +16,19 @@ require 'paq-nvim' {
     {'airblade/vim-gitgutter'};
     {'davidhalter/jedi'};
     {'fatih/vim-go'};
-    {'hrsh7th/nvim-compe'};
     {'kyazdani42/nvim-web-devicons'};
     {'mhinz/vim-startify'};
     {'neovim/nvim-lspconfig'};
     {'nvim-treesitter/nvim-treesitter', run=':TSUpdate'};
     {'Yggdroot/indentLine'};
     {'numToStr/Comment.nvim'};
+
+    -- completion
+    {'hrsh7th/nvim-cmp'};
+    {'hrsh7th/cmp-nvim-lsp'};
+    {'hrsh7th/cmp-buffer'};
+    {'hrsh7th/cmp-vsnip'};
+    {'hrsh7th/vim-vsnip'};
 
     -- telescope + deps
     {'nvim-lua/popup.nvim'};

@@ -30,8 +30,11 @@ map('n', '<leader>l', '<C-w>l', {})
 map('n', '<leader><tab>', '<cmd>bn<cr>', {})
 map('n', '<leader>b', '<cmd>BufferLinePick<cr>', {})
 
-vim.cmd[[highlight link CompeDocumentation Pmenu]]
-vim.cmd[[au BufRead,BufNewFile *.graphql,*.graphqls,*.gql setfiletype graphql]]
+-- snippets jumping
+vim.cmd[[ imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>' ]]
+vim.cmd[[ smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>' ]]
+
+vim.cmd[[ au BufRead,BufNewFile *.graphql,*.graphqls,*.gql setfiletype graphql ]]
 
 -- custom configs
 require('r.plugins')

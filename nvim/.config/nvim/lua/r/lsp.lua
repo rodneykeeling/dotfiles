@@ -1,7 +1,8 @@
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-require'lspconfig'.pyright.setup{}
+require'lspconfig'.pyright.setup{ capabilities = capabilities }
 require'lspconfig'.gopls.setup{}
-require'lspconfig'.rust_analyzer.setup{}
+require'lspconfig'.rust_analyzer.setup{ capabilities = capabilities }
 require'lspconfig'.tsserver.setup{}
 
 -- LSP diagnostics show only on hover
