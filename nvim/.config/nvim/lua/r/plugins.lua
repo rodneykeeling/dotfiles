@@ -14,7 +14,7 @@ require 'paq-nvim' {
 
     -- tooling;
     {'airblade/vim-gitgutter'};
-    {'davidhalter/jedi'};
+    -- {'davidhalter/jedi-vim'};
     {'fatih/vim-go'};
     {'kyazdani42/nvim-web-devicons'};
     {'mhinz/vim-startify'};
@@ -22,6 +22,7 @@ require 'paq-nvim' {
     {'nvim-treesitter/nvim-treesitter', run=':TSUpdate'};
     {'Yggdroot/indentLine'};
     {'numToStr/Comment.nvim'};
+    {'ggandor/lightspeed.nvim'};
 
     -- completion
     {'hrsh7th/nvim-cmp'};

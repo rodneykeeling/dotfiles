@@ -12,7 +12,7 @@ autoload -U promptinit
 setopt prompt_subst
 
 # stuff for tab completion
-autoload -U compinit && compinit
+autoload -U compinit && compinit -y
 
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
@@ -25,6 +25,8 @@ zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.pyc'
 
 autoload -U select-word-style
 select-word-style bash
+
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # plug-ins
 source /usr/share/zsh/share/antigen.zsh

@@ -12,7 +12,6 @@ map('n', ';', ':', { noremap = true })
 map('n', 'n', 'nzz', { noremap = true })
 map('n', 'N', 'Nzz', { noremap = true })
 
--- <leader>c to print current python class name
 map('n', '<leader>d', '<cmd>lua vim.lsp.buf.definition()<cr>', {})
 map('n', '<leader>r', '<cmd>lua vim.lsp.buf.references()<cr>', {})
 map('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>', {})

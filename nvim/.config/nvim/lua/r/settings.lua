@@ -73,8 +73,12 @@ g.startify_list_order = {
 }
 g.startify_bookmarks = {
     '~/.config/nvim/init.lua',
+    '~/.config/nvim/lua/r/completion.lua',
+    '~/.config/nvim/lua/r/lsp.lua',
     '~/.config/nvim/lua/r/plugins.lua',
     '~/.config/nvim/lua/r/settings.lua',
+    '~/.config/nvim/lua/r/telescope.lua',
+    '~/.config/nvim/lua/r/treesitter.lua',
     '~/.config/zsh/.zshrc',
 }
 g.startify_files_number = 5
