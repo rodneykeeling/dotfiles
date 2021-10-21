@@ -17,14 +17,17 @@ cmp.setup({
         ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
     },
     sources = {
-        { name = 'nvim_lsp' },
-        { name = 'buffer' },
+        { name = 'nvim_lsp', keyword_length = 3 },
+        { name = 'vsnip' },
+        { name = 'buffer', keyword_length = 3 },
+        { name = 'path' },
     },
     formatting = {
         format = function(entry, vim_item)
             vim_item.menu = ({
                 nvim_lsp = "[LSP]",
                 buffer = "[Buffer]",
+                path = "[Path]",
             })[entry.source.name]
             return vim_item
         end
