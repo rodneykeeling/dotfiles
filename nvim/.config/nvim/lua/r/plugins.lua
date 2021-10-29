@@ -32,6 +32,7 @@ require 'paq-nvim' {
     {'hrsh7th/cmp-vsnip'};
     {'hrsh7th/vim-vsnip'};
     {'hrsh7th/vim-vsnip-integ'};
+    {'rafamadriz/friendly-snippets'};
 
     -- telescope + deps
     {'nvim-lua/popup.nvim'};
