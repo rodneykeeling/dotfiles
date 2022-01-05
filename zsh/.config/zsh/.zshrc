@@ -66,7 +66,7 @@ function gl() {
 }
 
 alias ag='echo "Did you mean rg?"'
-alias rg="rg --smart-case --no-heading --glob '!*.sql' --glob '!*.map'"
+alias rg="rg --smart-case --no-heading --glob '!*.sql' --glob '!*.map' -M 1500"
 
 alias k='kubectl'
 

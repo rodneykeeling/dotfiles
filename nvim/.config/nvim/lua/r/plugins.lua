@@ -1,4 +1,4 @@
-require 'paq-nvim' {
+require 'paq' {
     {'savq/paq-nvim'};
     -- themes/colors
     {'ayu-theme/ayu-vim'};
@@ -11,6 +11,7 @@ require 'paq-nvim' {
     {'rakr/vim-one'};
     {'akinsho/nvim-bufferline.lua'};
     {'romgrk/doom-one.vim'};
+    {'rebelot/kanagawa.nvim'};
 
     -- tooling;
     {'airblade/vim-gitgutter'};

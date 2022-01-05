@@ -63,13 +63,13 @@ g.indentLine_showFirstIndentLevel = 0
 opt.mouse = 'a'
 
 -- colorscheme overrides
-cmd[[ highlight LspDiagnosticsDefaultError guifg=#ff6c6b ]]
+cmd[[ highlight DiagnosticFloatingError guifg=#ff6c6b ]]
 
 -- plugin-specific settings
 g.startify_list_order = {
+    {'Project ' .. fn.getcwd()}, 'dir',
     {'Bookmarks'}, 'bookmarks',
     {'MRU'}, 'files',
-    {'MRU ' .. fn.getcwd()}, 'dir',
 }
 g.startify_bookmarks = {
     '~/.config/nvim/init.lua',

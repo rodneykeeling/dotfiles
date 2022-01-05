@@ -13,6 +13,9 @@ require('telescope').setup {
         live_grep = {
             theme = 'dropdown'
         },
+        grep_string = {
+            theme = 'dropdown'
+        },
     },
     extensions = {
         fzf = {
@@ -33,3 +36,4 @@ map('n', '<leader>ff', [[<cmd>lua require'telescope.builtin'.find_files()<cr>]],
 map('n', '<leader>gf', [[<cmd>lua require'telescope.builtin'.git_files({ cwd = vim.fn.expand('%:p:h') })<cr>]], {})
 map('n', '<leader>gs', [[<cmd>lua require'telescope.builtin'.git_status()<cr>]], {})
 map('n', '<leader>rg', [[<cmd>lua require'telescope.builtin'.live_grep()<cr>]], {})
+map('n', '<leader>*', [[<cmd>lua require'telescope.builtin'.grep_string()<cr>]], {})

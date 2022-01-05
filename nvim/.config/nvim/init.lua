@@ -14,7 +14,7 @@ map('n', 'N', 'Nzz', { noremap = true })
 
 map('n', '<leader>d', '<cmd>lua vim.lsp.buf.definition()<cr>', {})
 map('n', '<leader>r', '<cmd>lua vim.lsp.buf.references()<cr>', {})
-map('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>', {})
+map('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<cr>', {})
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', {})
 map('n', '<leader>gg', '<cmd>GitGutterSignsToggle<cr>', {})
 map('n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting()<cr>', {})
@@ -27,6 +27,7 @@ map('n', '<leader>l', '<C-w>l', {})
 
 -- buffer stuff
 map('n', '<leader><tab>', '<cmd>bn<cr>', {})
+map('n', '<leader><s-tab>', '<cmd>bp<cr>', {})
 map('n', '<leader>b', '<cmd>BufferLinePick<cr>', {})
 
 -- snippets jumping

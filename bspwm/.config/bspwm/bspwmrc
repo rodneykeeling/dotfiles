@@ -36,11 +36,12 @@ bspc config borderless_monocle      true
 bspc config gapless_monocle         false
 
 # app-specific rules
-bspc rule -a Alacritty rectangle=866x1209+3405+114
+bspc rule -a Alacritty rectangle=866x1309+3405+114
 bspc rule -a Arandr state=floating
 bspc rule -a Blueman-manager state=floating
 bspc rule -a firefox rectangle=1337x1342+3172+43
 bspc rule -a Gpick state=floating
+bspc rule -a kitty rectangle=866x1309+3405+75
 bspc rule -a Lxappearance state=pseudo_tiled
 bspc rule -a Nm-connection-editor state=floating
 bspc rule -a Pavucontrol state=floating
