@@ -39,6 +39,14 @@ opt.termguicolors = true
 opt.guicursor = ''
 g.ayucolor = 'dark'
 cmd 'colorscheme doom-one'
+require('doom-one').setup({
+    plugin_integrations = {
+        bufferline = true,
+        gitgutter = true,
+        telescope = true,
+        startify = true,
+    }
+})
 
 -- folding settings
 opt.foldmethod = 'indent' -- fold based on indent
@@ -80,6 +88,7 @@ g.startify_bookmarks = {
     '~/.config/nvim/lua/r/telescope.lua',
     '~/.config/nvim/lua/r/treesitter.lua',
     '~/.config/zsh/.zshrc',
+    '~/.config/zsh/.zsh_history',
 }
 g.startify_files_number = 5
 g.startify_change_to_vcs_root = 1

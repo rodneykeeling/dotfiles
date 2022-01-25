@@ -10,7 +10,7 @@ require 'paq' {
     {'projekt0n/github-nvim-theme'};
     {'rakr/vim-one'};
     {'akinsho/nvim-bufferline.lua'};
-    {'romgrk/doom-one.vim'};
+    {'NTBBloodbath/doom-one.nvim'};
     {'rebelot/kanagawa.nvim'};
 
     -- tooling;

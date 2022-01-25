@@ -45,6 +45,7 @@ bspc rule -a kitty rectangle=866x1309+3405+75
 bspc rule -a Lxappearance state=pseudo_tiled
 bspc rule -a Nm-connection-editor state=floating
 bspc rule -a Pavucontrol state=floating
+bspc rule -a Ristretto state=floating
 bspc rule -a Thunar state=floating
 bspc rule -a Timeshift-gtk state=floating
 bspc rule -a Wrapper-2.0 state=floating

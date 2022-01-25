@@ -4,8 +4,8 @@ setopt noglobdots           # * shouldn't match dotfiles. ever.
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY
 HISTFILE=$ZDOTDIR/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=20000
+SAVEHIST=20000
 
 autoload -U colors && colors
 autoload -U promptinit
