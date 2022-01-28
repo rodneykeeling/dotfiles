@@ -18,6 +18,7 @@ map('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<cr>', {})
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', {})
 map('n', '<leader>gg', '<cmd>GitGutterSignsToggle<cr>', {})
 map('n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting()<cr>', {})
+map('n', '<leader>t', '<cmd>NvimTreeToggle<cr>', {})
 
 -- <C-w> remaps
 map('n', '<leader>h', '<C-w>h', {})

@@ -38,15 +38,6 @@ opt.statusline = '%t'
 opt.termguicolors = true
 opt.guicursor = ''
 g.ayucolor = 'dark'
-cmd 'colorscheme doom-one'
-require('doom-one').setup({
-    plugin_integrations = {
-        bufferline = true,
-        gitgutter = true,
-        telescope = true,
-        startify = true,
-    }
-})
 
 -- folding settings
 opt.foldmethod = 'indent' -- fold based on indent
@@ -141,3 +132,23 @@ require('bufferline').setup{
 }
 
 require('Comment').setup()
+require('colorizer').setup()
+require('nvim-tree').setup()
+
+require('doom-one').setup({
+    plugins_integrations = {
+        bufferline = true,
+        gitgutter = true,
+        nvim_tree = true,
+        startify = true,
+        telescope = true,
+    }
+})
+
+require("null-ls").setup({
+    sources = {
+        require("null-ls").builtins.formatting.black,
+        require("null-ls").builtins.formatting.isort,
+        require("null-ls").builtins.formatting.trim_whitespace,
+    },
+})

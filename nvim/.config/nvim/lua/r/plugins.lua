@@ -5,7 +5,7 @@ require 'paq' {
     {'drewtempelmeyer/palenight.vim'};
     {'gosukiwi/vim-atom-dark'};
     {'joshdick/onedark.vim'};
-    {'lilydjwg/colorizer'};
+    {'norcalli/nvim-colorizer.lua'};
     {'ntk148v/vim-horizon'};
     {'projekt0n/github-nvim-theme'};
     {'rakr/vim-one'};
@@ -15,7 +15,6 @@ require 'paq' {
 
     -- tooling;
     {'airblade/vim-gitgutter'};
-    -- {'davidhalter/jedi-vim'};
     {'fatih/vim-go'};
     {'kyazdani42/nvim-web-devicons'};
     {'mhinz/vim-startify'};
@@ -24,6 +23,8 @@ require 'paq' {
     {'Yggdroot/indentLine'};
     {'numToStr/Comment.nvim'};
     {'ggandor/lightspeed.nvim'};
+    {'kyazdani42/nvim-tree.lua'};
+    {'jose-elias-alvarez/null-ls.nvim'};
 
     -- completion
     {'hrsh7th/nvim-cmp'};

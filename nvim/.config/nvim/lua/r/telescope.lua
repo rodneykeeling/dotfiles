@@ -1,6 +1,25 @@
 local map = vim.api.nvim_set_keymap
 
 require('telescope').setup {
+    defaults = {
+        prompt_prefix = "   ",
+        selection_caret = "  ",
+        entry_prefix = "  ",
+        selection_strategy = "reset",
+        sorting_strategy = "ascending",
+        layout_strategy = "vertical",
+        layout_config = {
+            horizontal = {
+                prompt_position = "top",
+            },
+            vertical = {
+                mirror = false,
+                prompt_position = "top",
+            },
+            width = 85,
+            height = 0.40,
+        },
+    },
     pickers = {
         find_files = {
             previewer = false,
@@ -8,10 +27,11 @@ require('telescope').setup {
         },
         git_files = {
             previewer = false,
-            theme = 'dropdown'
         },
         live_grep = {
-            theme = 'dropdown'
+            layout_config = {
+                height = 0.7,
+            }
         },
         grep_string = {
             theme = 'dropdown'
@@ -37,3 +57,16 @@ map('n', '<leader>gf', [[<cmd>lua require'telescope.builtin'.git_files({ cwd = v
 map('n', '<leader>gs', [[<cmd>lua require'telescope.builtin'.git_status()<cr>]], {})
 map('n', '<leader>rg', [[<cmd>lua require'telescope.builtin'.live_grep()<cr>]], {})
 map('n', '<leader>*', [[<cmd>lua require'telescope.builtin'.grep_string()<cr>]], {})
+
+vim.cmd[[
+    highlight TelescopeNormal guibg=#23272e
+    highlight TelescopePromptBorder guifg=#31363f guibg=#31363f
+    highlight TelescopePromptNormal guifg=#abb2bf guibg=#31363f
+    highlight TelescopePromptPrefix guifg=#a9a1e1 guibg=#31363f
+    highlight TelescopePromptTitle guifg=#1e222a guibg=#a9a1e1
+    highlight TelescopePreviewTitle guifg=#1e222a guibg=#98be65
+    highlight TelescopePreviewBorder guifg=#23272e guibg=#23272e
+    highlight TelescopeResultsTitle guifg=#23272e guibg=#23272e
+    highlight TelescopeResultsBorder guifg=#23272e guibg=#23272e
+    highlight TelescopeSelection guibg=#31363f
+]]
