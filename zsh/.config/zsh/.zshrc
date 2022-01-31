@@ -75,6 +75,9 @@ alias da='docker attach'
 alias dcr='docker-compose run --rm'
 alias dcu='docker-compose up -d --no-recreate'
 alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"'
+alias dcd='docker-compose -f docker-compose.yml -f docker-compose.dev.yml'
+alias dcde='docker-compose -f docker-compose.yml -f docker-compose.dev.yml exec'
+alias dcdr='docker-compose -f docker-compose.yml -f docker-compose.dev.yml run --rm'
 
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
