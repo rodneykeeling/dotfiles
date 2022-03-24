@@ -12,6 +12,7 @@ require "paq" {
     {"akinsho/nvim-bufferline.lua"};
     {"NTBBloodbath/doom-one.nvim"};
     {"rebelot/kanagawa.nvim"};
+    {"folke/tokyonight.nvim"};
 
     -- tooling;
     {"airblade/vim-gitgutter"};

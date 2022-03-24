@@ -24,7 +24,7 @@ opt.wb = false
 opt.swapfile = false
 
 opt.expandtab = true
-opt.shiftwidth = 4 
+opt.shiftwidth = 4
 opt.tabstop = 4
 opt.smarttab = true
 opt.lbr = true

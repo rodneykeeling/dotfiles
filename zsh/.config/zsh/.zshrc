@@ -122,3 +122,6 @@ export PATH=$PATH:$HOME/.npm/bin
 export NODE_PATH=$NODE_PATH:$HOME/.npm/lib/node_modules
 
 export PYTHONSTARTUP="$HOME/.pythonrc.py"
+
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
