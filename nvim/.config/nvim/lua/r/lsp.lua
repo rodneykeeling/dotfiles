@@ -1,7 +1,7 @@
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 require"lspconfig".pyright.setup{ capabilities = capabilities }
-require"lspconfig".gopls.setup{}
+require"lspconfig".gopls.setup{ capabilities = capabilities }
 require"lspconfig".rust_analyzer.setup{ capabilities = capabilities }
 require"lspconfig".tsserver.setup{}
 

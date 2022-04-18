@@ -26,7 +26,7 @@ require "paq" {
     {"ggandor/lightspeed.nvim"};
     {"kyazdani42/nvim-tree.lua"};
     {"jose-elias-alvarez/null-ls.nvim"};
-    {"akinsho/toggleterm.nvim"};
+    {"akinsho/toggleterm.nvim", branch="main"};
     {"natecraddock/workspaces.nvim"};
 
     -- completion
