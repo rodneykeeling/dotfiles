@@ -94,7 +94,7 @@ require("bufferline").setup{
         show_buffer_close_icons = false,
         show_buffer_icons = true,
         show_tab_indicators = false,
-        always_show_bufferline = false,
+        always_show_bufferline = true,
         left_trunc_marker = "",
         right_trunc_marker = "",
         offsets = {
@@ -134,6 +134,10 @@ require("bufferline").setup{
         pick_selected = {
             guibg = "#282c34",
             guifg = "#ffffff",
+        },
+        indicator_selected = {
+            guibg = "#282c34",
+            guifg = "#282c34",
         },
     }
 }

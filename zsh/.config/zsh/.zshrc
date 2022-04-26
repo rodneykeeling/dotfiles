@@ -29,7 +29,7 @@ select-word-style bash
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # plug-ins
-source /usr/share/zsh/share/antigen.zsh
+source /Users/rodneykeeling/dev/random/antigen/antigen.zsh
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle jocelynmallon/zshmarks
 antigen apply
@@ -70,14 +70,14 @@ alias rg="rg --smart-case --no-heading --glob '!*.sql' --glob '!*.map' -M 1500"
 
 alias k='kubectl'
 
-alias dc='docker-compose'
+alias dc='docker compose'
 alias da='docker attach'
-alias dcr='docker-compose run --rm'
-alias dcu='docker-compose up -d --no-recreate'
+alias dcr='docker compose run --rm'
+alias dcu='docker compose up -d --no-recreate'
 alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"'
-alias dcd='docker-compose -f docker-compose.yml -f docker-compose.dev.yml'
-alias dcde='docker-compose -f docker-compose.yml -f docker-compose.dev.yml exec'
-alias dcdr='docker-compose -f docker-compose.yml -f docker-compose.dev.yml run --rm'
+alias dcd='docker compose -f docker compose.yml -f docker compose.dev.yml'
+alias dcde='docker compose -f docker compose.yml -f docker compose.dev.yml exec'
+alias dcdr='docker compose -f docker compose.yml -f docker compose.dev.yml run --rm'
 
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
@@ -92,6 +92,7 @@ eval $(ssh-agent) > /dev/null
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 
 export VISUAL=nvim
 export EDITOR=nvim
@@ -103,25 +104,20 @@ export PYTHONDONTWRITEBYTECODE=1
 # RECYCLE CONTAINER (can take an argument to specify which container,
 # otherwise will reset all)
 dc-recycle() {
-  docker-compose stop $1
-  docker-compose rm --force $1
-  docker-compose build $1
-  docker-compose up -d --no-recreate $1
+  docker compose stop $1
+  docker compose rm --force $1
+  docker compose build $1
+  docker compose up -d --no-recreate $1
 }
 
 alias pip="$HOME/.pyenv/shims/pip"
 
-. $HOME/.asdf/asdf.sh
-
-export GOROOT=/usr/lib/go
-export PATH=$PATH:$GOROOT/bin
-export GOPATH=$HOME/dev/random/golang
-export PATH=$PATH:$GOPATH/bin
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 export PATH=$PATH:$HOME/.npm/bin
 export NODE_PATH=$NODE_PATH:$HOME/.npm/lib/node_modules
 
-export PYTHONSTARTUP="$HOME/.pythonrc.py"
+source $HOME/.cargo/env
 
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
