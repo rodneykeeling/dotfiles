@@ -28,6 +28,7 @@ require "paq" {
     {"jose-elias-alvarez/null-ls.nvim"};
     {"akinsho/toggleterm.nvim", branch="main"};
     {"natecraddock/workspaces.nvim"};
+    {"ruanyl/vim-gh-line"};
 
     -- completion
     {"hrsh7th/nvim-cmp"};

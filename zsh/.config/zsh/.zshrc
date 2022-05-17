@@ -121,3 +121,5 @@ source $HOME/.cargo/env
 
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
+
+source <(kubectl completion zsh)
