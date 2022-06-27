@@ -165,4 +165,3 @@ require("null-ls").setup({
 })
 
 require("toggleterm").setup()
-require("workspaces").setup()
