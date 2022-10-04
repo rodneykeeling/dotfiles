@@ -12,7 +12,9 @@ autoload -U promptinit
 setopt prompt_subst
 
 # stuff for tab completion
-autoload -U compinit && compinit -y
+fpath=(~/.zsh/completion $fpath)
+plugins=(docker kubectl)
+autoload -Uz compinit && compinit
 
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
@@ -121,5 +123,3 @@ source $HOME/.cargo/env
 
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
-
-source <(kubectl completion zsh)

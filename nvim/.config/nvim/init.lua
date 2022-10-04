@@ -15,13 +15,15 @@ map("n", "N", "Nzz", opts)
 
 map("n", "<leader>d", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
 map("n", "<leader>r", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
-map("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
-map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+map("n", "<leader>e", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
+map("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
 map("n", "<leader>gg", "<cmd>GitGutterSignsToggle<cr>", opts)
 map("n", "<leader>gn", "<cmd>GitGutterNextHunk<cr>zz", opts)
 map("n", "<leader>gp", "<cmd>GitGutterPrevHunk<cr>zz", opts)
 map("n", "<leader>=", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
 map("n", "<leader>t", "<cmd>NvimTreeToggle<cr>", opts)
+
+map("n", "<leader>ld", "<cmd>Lspsaga lsp_finder<cr>", opts)
 
 -- <C-w> remaps
 map("n", "<leader>h", "<C-w>h", opts)
@@ -40,6 +42,7 @@ vim.cmd[[ smap <expr> <C-l>   vsnip#available(1)  ? "<Plug>(vsnip-expand-or-jump
 
 vim.cmd[[ au BufRead,BufNewFile *.graphql,*.graphqls,*.gql setfiletype graphql ]]
 vim.cmd[[ au FileType graphql setlocal shiftwidth=2 tabstop=2 ]]
+vim.cmd[[ au! BufAdd,BufRead,BufNew,BufEnter *.json let g:indentLine_conceallevel=0 ]]
 
 -- custom configs
 require("r.plugins")

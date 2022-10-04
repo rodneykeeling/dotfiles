@@ -13,6 +13,7 @@ require "paq" {
     {"NTBBloodbath/doom-one.nvim"};
     {"rebelot/kanagawa.nvim"};
     {"folke/tokyonight.nvim"};
+    {"sam4llis/nvim-tundra"};
 
     -- tooling;
     {"airblade/vim-gitgutter"};
@@ -28,6 +29,7 @@ require "paq" {
     {"jose-elias-alvarez/null-ls.nvim"};
     {"akinsho/toggleterm.nvim", branch="main"};
     {"ruanyl/vim-gh-line"};
+    {"glepnir/lspsaga.nvim"};
 
     -- completion
     {"hrsh7th/nvim-cmp"};

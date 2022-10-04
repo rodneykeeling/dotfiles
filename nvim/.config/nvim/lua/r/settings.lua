@@ -38,7 +38,6 @@ opt.statusline = "%t"
 
 opt.termguicolors = true
 opt.guicursor = ""
-g.ayucolor = "dark"
 
 -- folding settings
 opt.foldmethod = "indent" -- fold based on indent
@@ -47,6 +46,7 @@ opt.foldlevel = 20 -- this is just what i use
 opt.fillchars = ""
 
 -- disable doublequote hiding in json files
+g.vim_json_conceal = 0
 g.vim_json_syntax_conceal = 0
 g.vim_markdown_conceal = 0
 
@@ -106,38 +106,38 @@ require("bufferline").setup{
     },
     highlights = {
         background = {
-            guibg = "#282c34",
-            guifg = "#555555",
+            bg = "#24283b",
+            fg = "#555555",
         },
         buffer_selected = {
-            gui = "bold",
-            guifg = "#ffffff",
+            bold = true,
+            fg = "#ffffff",
         },
         fill = {
-            guibg = "#282c34",
-            guifg = "#ffffff",
+            bg = "#24283b",
+            fg = "#ffffff",
         },
         separator = {
-            guibg = "#282c34",
-            guifg = "#282c34",
+            bg = "#24283b",
+            fg = "#24283b",
         },
         modified = {
-            guibg = "#282c34",
+            bg = "#24283b",
         },
         duplicate = {
-            guibg = "#282c34",
+            bg = "#24283b",
         },
         pick = {
-            guibg = "#282c34",
-            guifg = "#ffffff",
+            bg = "#24283b",
+            fg = "#ffffff",
         },
         pick_selected = {
-            guibg = "#282c34",
-            guifg = "#ffffff",
+            bg = "#24283b",
+            fg = "#ffffff",
         },
         indicator_selected = {
-            guibg = "#282c34",
-            guifg = "#282c34",
+            bg = "#24283b",
+            fg = "#24283b",
         },
     }
 }
@@ -146,15 +146,17 @@ require("Comment").setup()
 require("colorizer").setup()
 require("nvim-tree").setup()
 
-require("doom-one").setup({
-    plugins_integrations = {
-        bufferline = true,
-        gitgutter = true,
-        nvim_tree = true,
-        startify = true,
-        telescope = true,
-    }
-})
+-- require("doom-one").setup({
+--     plugins_integrations = {
+--         bufferline = true,
+--         gitgutter = true,
+--         nvim_tree = true,
+--         startify = true,
+--         telescope = true,
+--     }
+-- })
+g.tokyonight_style = "storm"
+vim.cmd[[ colorscheme tokyonight ]]
 
 require("null-ls").setup({
     sources = {
