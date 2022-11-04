@@ -43,7 +43,7 @@ bindkey -e  # allows for ctrl-e in tmux
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
-PROMPT=$'%{$fg[white]%}%1~ %{$fg[red]%}\x00\xc2\xbb %{$fg[white]%}'
+PROMPT=$'%{$fg[white]%}%1~ %{$fg[magenta]%}\x00\xc2\xbb %{$fg[white]%}'
 
 alias cp="cp -i"
 alias rm="rm -i"

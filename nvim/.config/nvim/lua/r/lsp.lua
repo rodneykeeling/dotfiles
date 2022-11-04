@@ -1,11 +1,52 @@
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local util = require('lspconfig/util')
 
-require"lspconfig".gopls.setup{ capabilities = capabilities }
-require"lspconfig".graphql.setup{ capabilities = capabilities }
-require"lspconfig".pyright.setup{ capabilities = capabilities }
-require"lspconfig".rust_analyzer.setup{ capabilities = capabilities }
-require"lspconfig".tsserver.setup{ capabilities = capabilities }
-require"lspconfig".yamlls.setup{ capabilities = capabilities }
+local path = util.path
+
+local function get_python_path(workspace)
+  -- Use activated virtualenv.
+  if vim.env.VIRTUAL_ENV then
+    return path.join(vim.env.VIRTUAL_ENV, 'bin', 'python')
+  end
+
+  -- Find and use virtualenv from pipenv in workspace directory.
+  local match = vim.fn.glob(path.join(workspace, 'Pipfile'))
+  if match ~= '' then
+    local venv = vim.fn.trim(vim.fn.system('PIPENV_PIPFILE=' .. match .. ' pipenv --venv'))
+    return path.join(venv, 'bin', 'python')
+  end
+
+  -- Fallback to system Python.
+  return vim.fn.exepath('python3') or vim.fn.exepath('python') or 'python'
+end
+
+
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local on_attach = function(client, bufnr)
+    if client.server_capabilities.documentSymbolProvider then
+        require("nvim-navic").attach(client, bufnr)
+    end
+end
+
+require"lspconfig".gopls.setup{ capabilities = capabilities, on_attach = on_attach, }
+require"lspconfig".graphql.setup{ capabilities = capabilities, on_attach = on_attach, }
+require"lspconfig".pyright.setup{
+    capabilities = capabilities,
+    on_attach = on_attach,
+    on_init = function(client)
+        client.config.settings.python.pythonPath = get_python_path(client.config.root_dir)
+    end
+}
+require"lspconfig".rust_analyzer.setup{ capabilities = capabilities, on_attach = on_attach, }
+require"lspconfig".tsserver.setup{ capabilities = capabilities, on_attach = on_attach, }
+require"lspconfig".yamlls.setup{
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = {
+        yaml = {
+           schemas = { kubernetes = "*.yaml" },
+        }
+    }
+}
 
 -- LSP diagnostics show only on hover
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

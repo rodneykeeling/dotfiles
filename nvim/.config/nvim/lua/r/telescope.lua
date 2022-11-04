@@ -45,10 +45,13 @@ require("telescope").setup {
     }
 
 require("telescope").load_extension("fzf")
+require("telescope").load_extension("noice")
+require('telescope').load_extension('projects')
 
 map("n", "<leader>ff", [[<cmd>lua require"telescope.builtin".find_files()<cr>]], {})
 map("n", "<leader>gf", [[<cmd>lua require"telescope.builtin".git_files({ cwd = vim.fn.expand("%:p:h") })<cr>]], {})
 map("n", "<leader>gs", [[<cmd>lua require"telescope.builtin".git_status()<cr>]], {})
+map("n", "<leader>p", [[<cmd>lua require"telescope".extensions.projects.projects()<cr>]], {})
 map("n", "<leader>rg", [[<cmd>lua require"telescope.builtin".live_grep()<cr>]], {})
 map("n", "<leader>*", [[<cmd>lua require"telescope.builtin".grep_string()<cr>]], {})
 

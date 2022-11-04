@@ -1,22 +1,15 @@
 require "paq" {
     {"savq/paq-nvim"};
     -- themes/colors
-    {"ayu-theme/ayu-vim"};
-    {"drewtempelmeyer/palenight.vim"};
-    {"gosukiwi/vim-atom-dark"};
-    {"joshdick/onedark.vim"};
     {"norcalli/nvim-colorizer.lua"};
-    {"ntk148v/vim-horizon"};
     {"projekt0n/github-nvim-theme"};
     {"rakr/vim-one"};
-    {"akinsho/nvim-bufferline.lua"};
     {"NTBBloodbath/doom-one.nvim"};
     {"rebelot/kanagawa.nvim"};
     {"folke/tokyonight.nvim"};
-    {"sam4llis/nvim-tundra"};
 
     -- tooling;
-    {"airblade/vim-gitgutter"};
+    {"lewis6991/gitsigns.nvim"};
     {"fatih/vim-go"};
     {"kyazdani42/nvim-web-devicons"};
     {"mhinz/vim-startify"};
@@ -30,6 +23,12 @@ require "paq" {
     {"akinsho/toggleterm.nvim", branch="main"};
     {"ruanyl/vim-gh-line"};
     {"glepnir/lspsaga.nvim"};
+    {"MunifTanjim/nui.nvim"};
+    {"rcarriga/nvim-notify"};
+    {"folke/noice.nvim"};
+    {"nvim-lualine/lualine.nvim"};
+    {"SmiteshP/nvim-navic"};
+    {"ahmedkhalf/project.nvim"};
 
     -- completion
     {"hrsh7th/nvim-cmp"};

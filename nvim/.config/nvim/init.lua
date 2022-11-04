@@ -17,10 +17,7 @@ map("n", "<leader>d", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
 map("n", "<leader>r", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
 map("n", "<leader>e", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
 map("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
-map("n", "<leader>gg", "<cmd>GitGutterSignsToggle<cr>", opts)
-map("n", "<leader>gn", "<cmd>GitGutterNextHunk<cr>zz", opts)
-map("n", "<leader>gp", "<cmd>GitGutterPrevHunk<cr>zz", opts)
-map("n", "<leader>=", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
+map("n", "<leader>=", "<cmd>lua vim.lsp.buf.format({async=true})<cr>", opts)
 map("n", "<leader>t", "<cmd>NvimTreeToggle<cr>", opts)
 
 map("n", "<leader>ld", "<cmd>Lspsaga lsp_finder<cr>", opts)
@@ -34,9 +31,11 @@ map("n", "<leader>l", "<C-w>l", opts)
 -- buffer stuff
 map("n", "<leader><tab>", "<cmd>bn<cr>", opts)
 map("n", "<leader><s-tab>", "<cmd>bp<cr>", opts)
-map("n", "<leader>b", "<cmd>BufferLinePick<cr>", opts)
+map("n", "<leader>bd", "<cmd>bd<cr>", opts)
 
 -- snippets jumping
+vim.cmd[[ xmap        <C-l>   <Plug>(vsnip-cut-text) ]]
+vim.cmd[[ nmap        <C-l>   <Plug>(vsnip-cut-text) ]]
 vim.cmd[[ imap <expr> <C-l>   vsnip#available(1)  ? "<Plug>(vsnip-expand-or-jump)" : "<C-l>" ]]
 vim.cmd[[ smap <expr> <C-l>   vsnip#available(1)  ? "<Plug>(vsnip-expand-or-jump)" : "<C-l>" ]]
 

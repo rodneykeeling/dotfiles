@@ -37,7 +37,7 @@ opt.laststatus = 0
 opt.statusline = "%t"
 
 opt.termguicolors = true
-opt.guicursor = ""
+opt.guicursor = "n-i:ver1"
 
 -- folding settings
 opt.foldmethod = "indent" -- fold based on indent
@@ -87,76 +87,13 @@ g.startify_change_to_vcs_root = 1
 g.startify_custom_header = ""
 
 vim.opt.termguicolors = true
-require("bufferline").setup{
-    options = {
-        numbers = "none",
-        show_close_icon = false,
-        show_buffer_close_icons = false,
-        show_buffer_icons = true,
-        show_tab_indicators = false,
-        always_show_bufferline = true,
-        left_trunc_marker = "",
-        right_trunc_marker = "",
-        offsets = {
-            {
-                filetype = "NvimTree",
-                text = "",
-            }
-        },
-    },
-    highlights = {
-        background = {
-            bg = "#24283b",
-            fg = "#555555",
-        },
-        buffer_selected = {
-            bold = true,
-            fg = "#ffffff",
-        },
-        fill = {
-            bg = "#24283b",
-            fg = "#ffffff",
-        },
-        separator = {
-            bg = "#24283b",
-            fg = "#24283b",
-        },
-        modified = {
-            bg = "#24283b",
-        },
-        duplicate = {
-            bg = "#24283b",
-        },
-        pick = {
-            bg = "#24283b",
-            fg = "#ffffff",
-        },
-        pick_selected = {
-            bg = "#24283b",
-            fg = "#ffffff",
-        },
-        indicator_selected = {
-            bg = "#24283b",
-            fg = "#24283b",
-        },
-    }
-}
 
 require("Comment").setup()
 require("colorizer").setup()
 require("nvim-tree").setup()
 
--- require("doom-one").setup({
---     plugins_integrations = {
---         bufferline = true,
---         gitgutter = true,
---         nvim_tree = true,
---         startify = true,
---         telescope = true,
---     }
--- })
-g.tokyonight_style = "storm"
-vim.cmd[[ colorscheme tokyonight ]]
+-- g.tokyonight_style = "storm"
+vim.cmd[[ colorscheme doom-one ]]
 
 require("null-ls").setup({
     sources = {
@@ -167,3 +104,127 @@ require("null-ls").setup({
 })
 
 require("toggleterm").setup()
+require("noice").setup({
+    cmdline = {
+        format = {
+            search_up = { icon = " " },
+            search_down = { icon = " " },
+        },
+    },
+    messages = {
+        enabled = false,
+    },
+    lsp = {
+        progress = { enabled = false }
+    },
+})
+
+local navic = require("nvim-navic")
+navic.setup({
+    highlight = true,
+})
+local winbar_config = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {
+            { 'filetype', icon_only = true, separator = false, padding = 0 },
+            {
+                'filename',
+                path=1,
+                symbols = { modified = '●', unnamed = '', readonly = '' },
+                color = { fg = '#da8548' },
+                padding = 1
+            },
+            {
+                navic.get_location,
+                cond = navic.is_available,
+                color = { bg = '#282c34' },
+                padding = { left = 1, right = 0 },
+            }
+        },
+        lualine_x = {
+            {
+                'buffers',
+                show_filename_only = true,
+                symbols = {
+                    alternate_file = '',
+                    unnamed = '',
+                },
+                buffers_color = {
+                    active = { bg = '#282c34' },
+                    inactive = { fg = '#555555', bg = '#282c34' }
+                },
+            }
+        },
+        lualine_y = {},
+        lualine_z = {}
+}
+require('lualine').setup {
+    options = {
+        icons_enabled = true,
+        theme = {
+            normal = { c = { bg = '#282c34' } },
+            inactive = { c = { bg = '#282c34' } },
+        },
+        component_separators = { left = '>', right = '>'},
+        section_separators = { left = '', right = ''},
+        refresh = {
+            statusline = 1000,
+            tabline = 1000,
+            winbar = 1000,
+        }
+    },
+    sections = { },
+    inactive_sections = { },
+    tabline = winbar_config,
+    winbar = {},
+    inactive_winbar = {},
+    extensions = {}
+}
+
+require('project_nvim').setup()
+
+require('gitsigns').setup{
+  on_attach = function(bufnr)
+    local gs = package.loaded.gitsigns
+
+    local function map(mode, l, r, opts)
+      opts = opts or {}
+      opts.buffer = bufnr
+      vim.keymap.set(mode, l, r, opts)
+    end
+
+    map('n', '<leader>gn', gs.next_hunk)
+    map('n', '<leader>gp', gs.prev_hunk)
+    map('n', '<leader>hp', gs.preview_hunk)
+  end
+}
+
+vim.api.nvim_set_hl(0, "NavicIconsFile",          {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsNamespace",     {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsPackage",       {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsModule",        {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsClass",         {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsMethod",        {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsProperty",      {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsField",         {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsConstructor",   {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsEnum",          {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsInterface",     {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsFunction",      {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsVariable",      {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsConstant",      {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsString",        {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsNumber",        {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsBoolean",       {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsArray",         {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsObject",        {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsKey",           {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsNull",          {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsEnumMember",    {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsStruct",        {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsEvent",         {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsOperator",      {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicIconsTypeParameter", {default = true, fg = "#a9a1e1", bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicText",               {default = true, bg = "#282c34"})
+vim.api.nvim_set_hl(0, "NavicSeparator",          {default = true, bg = "#282c34"})
