@@ -32,6 +32,11 @@ require("telescope").setup {
                 height = 0.7,
             }
         },
+        grep_string = {
+            layout_config = {
+                height = 0.7
+            }
+        }
     },
     extensions = {
         fzf = {

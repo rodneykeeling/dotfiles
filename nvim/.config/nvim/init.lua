@@ -7,7 +7,7 @@ local opts = { noremap = true, silent = true }
 map("n", "<Space>", "", opts)
 g.mapleader = " "
 
-map("n", "`", "0", opts)
+map("n", "`", "^", opts)
 map("n", ";", ":", opts)
 
 map("n", "n", "nzz", opts)
@@ -32,6 +32,11 @@ map("n", "<leader>l", "<C-w>l", opts)
 map("n", "<leader><tab>", "<cmd>bn<cr>", opts)
 map("n", "<leader><s-tab>", "<cmd>bp<cr>", opts)
 map("n", "<leader>bd", "<cmd>bd<cr>", opts)
+
+-- ToggleTerm
+map("n", "<leader>`", "<cmd>IronFocus<cr>", opts)
+map("n", "<leader>~", "<cmd>ToggleTerm<cr>", opts)
+map("t", "<esc>", [[<C-\><C-n>]], opts)
 
 -- snippets jumping
 vim.cmd[[ xmap        <C-l>   <Plug>(vsnip-cut-text) ]]

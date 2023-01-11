@@ -81,10 +81,11 @@ alias dcd='docker compose -f docker compose.yml -f docker compose.dev.yml'
 alias dcde='docker compose -f docker compose.yml -f docker compose.dev.yml exec'
 alias dcdr='docker compose -f docker compose.yml -f docker compose.dev.yml run --rm'
 
+export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
-export TERM=xterm-256color
+#export TERM=xterm-256color
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -123,3 +124,5 @@ source $HOME/.cargo/env
 
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
+
+export PATH="$HOME/go/bin:$PATH"

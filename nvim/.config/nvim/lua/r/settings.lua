@@ -86,13 +86,15 @@ g.startify_files_number = 5
 g.startify_change_to_vcs_root = 1
 g.startify_custom_header = ""
 
+g.go_def_mapping_enabled = 0
+g.go_doc_keywordprg_enabled = 0
+
 vim.opt.termguicolors = true
 
 require("Comment").setup()
 require("colorizer").setup()
 require("nvim-tree").setup()
 
--- g.tokyonight_style = "storm"
 vim.cmd[[ colorscheme doom-one ]]
 
 require("null-ls").setup({
@@ -103,7 +105,21 @@ require("null-ls").setup({
     },
 })
 
-require("toggleterm").setup()
+require("toggleterm").setup({
+    highlights = {
+        Normal = {
+            guibg = "#282c34",
+        },
+        NormalBorder = {
+            guibg = "#ffffff",
+        },
+        NormalFloat = {
+            guibg = '#282c34',
+        },
+    },
+    direction = 'horizontal',
+    shade_terminals = false,
+})
 require("noice").setup({
     cmdline = {
         format = {
@@ -199,6 +215,34 @@ require('gitsigns').setup{
     map('n', '<leader>hp', gs.preview_hunk)
   end
 }
+
+require("nvim-autopairs").setup()
+
+require('lspsaga').setup({
+    ui = {
+        border = 'rounded',
+        code_action = '',
+        colors = {
+            --float window normal bakcground color
+            normal_bg = '#282c34',
+            --title background color
+            title_bg = '#afd700',
+            red = '#e95678',
+            magenta = '#b33076',
+            orange = '#FF8700',
+            yellow = '#f7bb3b',
+            green = '#afd700',
+            cyan = '#36d0e0',
+            blue = '#61afef',
+            purple = '#CBA6F7',
+            white = '#00ff00',
+            black = '#ff0000',
+        }
+    },
+    symbol_in_winbar = {
+        enable = false,
+    }
+})
 
 vim.api.nvim_set_hl(0, "NavicIconsFile",          {default = true, fg = "#a9a1e1", bg = "#282c34"})
 vim.api.nvim_set_hl(0, "NavicIconsNamespace",     {default = true, fg = "#a9a1e1", bg = "#282c34"})

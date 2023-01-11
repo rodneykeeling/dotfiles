@@ -6,7 +6,6 @@ require "paq" {
     {"rakr/vim-one"};
     {"NTBBloodbath/doom-one.nvim"};
     {"rebelot/kanagawa.nvim"};
-    {"folke/tokyonight.nvim"};
 
     -- tooling;
     {"lewis6991/gitsigns.nvim"};
@@ -29,6 +28,7 @@ require "paq" {
     {"nvim-lualine/lualine.nvim"};
     {"SmiteshP/nvim-navic"};
     {"ahmedkhalf/project.nvim"};
+    {"windwp/nvim-autopairs"};
 
     -- completion
     {"hrsh7th/nvim-cmp"};
