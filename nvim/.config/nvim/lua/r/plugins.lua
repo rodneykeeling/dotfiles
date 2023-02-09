@@ -6,6 +6,7 @@ require "paq" {
     {"rakr/vim-one"};
     {"NTBBloodbath/doom-one.nvim"};
     {"rebelot/kanagawa.nvim"};
+    {"catppuccin/nvim", as = "catppuccin"};
 
     -- tooling;
     {"lewis6991/gitsigns.nvim"};

@@ -61,14 +61,15 @@ map("n", "<leader>rg", [[<cmd>lua require"telescope.builtin".live_grep()<cr>]], 
 map("n", "<leader>*", [[<cmd>lua require"telescope.builtin".grep_string()<cr>]], {})
 
 vim.cmd[[
-    highlight TelescopeNormal guibg=#23272e
-    highlight TelescopePromptBorder guifg=#31363f guibg=#31363f
-    highlight TelescopePromptNormal guifg=#abb2bf guibg=#31363f
-    highlight TelescopePromptPrefix guifg=#a9a1e1 guibg=#31363f
+    highlight TelescopeNormal guibg=#1E2030
+    highlight TelescopePromptBorder guifg=#1E2030 guibg=#1E2030
+    highlight TelescopePromptNormal guifg=#abb2bf guibg=#1E2030
+    highlight TelescopePromptPrefix guifg=#a9a1e1 guibg=#1E2030
     highlight TelescopePromptTitle guifg=#1e222a guibg=#a9a1e1
-    highlight TelescopePreviewTitle guifg=#1e222a guibg=#98be65
-    highlight TelescopePreviewBorder guifg=#23272e guibg=#23272e
-    highlight TelescopeResultsTitle guifg=#23272e guibg=#23272e
-    highlight TelescopeResultsBorder guifg=#23272e guibg=#23272e
-    highlight TelescopeSelection guibg=#31363f
+    highlight TelescopePreviewTitle guifg=#B7BDF8 guibg=#98be65
+    highlight TelescopePreviewBorder guifg=#B7BDF8 guibg=#1E2030
+    highlight TelescopeResultsTitle guifg=#B7BDF8 guibg=#1E2030
+    highlight TelescopeResultsBorder guifg=#B7BDF8 guibg=#1E2030
+    highlight TelescopeSelection guifg=#B7BDF8 guibg=#24273A
+    highlight TelescopeMatching guifg=#B7BDF8
 ]]
