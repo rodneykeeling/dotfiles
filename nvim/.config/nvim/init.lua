@@ -2,6 +2,19 @@ local g = vim.g
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
 -- mappings
 -- map leader key to Space
 map("n", "<Space>", "", opts)
@@ -18,7 +31,6 @@ map("n", "<leader>r", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
 map("n", "<leader>e", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
 map("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
 map("n", "<leader>=", "<cmd>lua vim.lsp.buf.format({async=true})<cr>", opts)
-map("n", "<leader>t", "<cmd>NvimTreeToggle<cr>", opts)
 
 map("n", "<leader>ld", "<cmd>Lspsaga lsp_finder<cr>", opts)
 
@@ -33,9 +45,6 @@ map("n", "<leader><tab>", "<cmd>bn<cr>", opts)
 map("n", "<leader><s-tab>", "<cmd>bp<cr>", opts)
 map("n", "<leader>bd", "<cmd>bd<cr>", opts)
 
--- ToggleTerm
-map("n", "<leader>`", "<cmd>IronFocus<cr>", opts)
-map("n", "<leader>~", "<cmd>ToggleTerm<cr>", opts)
 map("t", "<esc>", [[<C-\><C-n>]], opts)
 
 -- snippets jumping

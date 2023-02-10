@@ -93,33 +93,9 @@ vim.opt.termguicolors = true
 
 require("Comment").setup()
 require("colorizer").setup()
-require("nvim-tree").setup()
 
 vim.cmd[[ colorscheme catppuccin-macchiato ]]
 
-require("null-ls").setup({
-    sources = {
-        require("null-ls").builtins.formatting.black,
-        require("null-ls").builtins.formatting.isort,
-        require("null-ls").builtins.formatting.trim_whitespace,
-    },
-})
-
-require("toggleterm").setup({
-    highlights = {
-        Normal = {
-            guibg = "#24273A",
-        },
-        NormalBorder = {
-            guibg = "#ffffff",
-        },
-        NormalFloat = {
-            guibg = '#24273A',
-        },
-    },
-    direction = 'horizontal',
-    shade_terminals = false,
-})
 require("noice").setup({
     cmdline = {
         format = {
