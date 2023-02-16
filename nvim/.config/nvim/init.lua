@@ -19,6 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 -- map leader key to Space
 map("n", "<Space>", "", opts)
 g.mapleader = " "
+g.maplocalleader = ","
 
 map("n", "`", "^", opts)
 map("n", ";", ":", opts)

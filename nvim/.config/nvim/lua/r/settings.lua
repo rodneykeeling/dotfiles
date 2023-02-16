@@ -91,7 +91,6 @@ g.go_doc_keywordprg_enabled = 0
 
 vim.opt.termguicolors = true
 
-require("Comment").setup()
 require("colorizer").setup()
 
 vim.cmd[[ colorscheme catppuccin-macchiato ]]

@@ -85,6 +85,26 @@ require("lazy").setup({
             })
         end,
     };
+    {"nvim-neorg/neorg",
+        lazy=true,
+        keys={{"<leader>n", "<cmd>Neorg workspace notes<cr>"}},
+        config=function()
+            require('neorg').setup {
+                load = {
+                    ["core.defaults"] = {}, -- Loads default behaviour
+                    ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
+                    ["core.norg.dirman"] = { -- Manages Neorg workspaces
+                        config = {
+                            workspaces = {
+                                notes = "~/notes",
+                            },
+                        },
+                    },
+                    ["core.norg.qol.todo_items"] = {},
+                },
+            }
+        end
+    };
 
     -- completion
     {"hrsh7th/nvim-cmp"};
