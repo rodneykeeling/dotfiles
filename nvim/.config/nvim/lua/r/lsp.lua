@@ -29,6 +29,7 @@ end
 
 require"lspconfig".gopls.setup{ capabilities = capabilities, on_attach = on_attach, }
 require"lspconfig".graphql.setup{ capabilities = capabilities, on_attach = on_attach, }
+require"lspconfig".ruff_lsp.setup{ capabilities = capabilities, on_attach = on_attach, }
 require"lspconfig".pyright.setup{
     capabilities = capabilities,
     on_attach = on_attach,
@@ -38,6 +39,7 @@ require"lspconfig".pyright.setup{
 }
 require"lspconfig".rust_analyzer.setup{ capabilities = capabilities, on_attach = on_attach, }
 require"lspconfig".tsserver.setup{ capabilities = capabilities, on_attach = on_attach, }
+require"lspconfig".svelte.setup{ capabilities = capabilities, on_attach = on_attach, }
 require"lspconfig".yamlls.setup{
     capabilities = capabilities,
     on_attach = on_attach,

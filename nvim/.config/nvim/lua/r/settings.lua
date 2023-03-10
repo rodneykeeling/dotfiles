@@ -194,6 +194,9 @@ require('gitsigns').setup{
 require("nvim-autopairs").setup()
 
 require('lspsaga').setup({
+    diagnostic = {
+        on_insert = false,
+    },
     ui = {
         border = 'rounded',
         code_action = '',

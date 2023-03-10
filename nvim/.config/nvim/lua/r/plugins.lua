@@ -15,7 +15,11 @@ require("lazy").setup({
     {"neovim/nvim-lspconfig"};
     {"nvim-treesitter/nvim-treesitter", cmd="TSUpdate"};
     {"Yggdroot/indentLine"};
-    {"numToStr/Comment.nvim"};
+    {"numToStr/Comment.nvim",
+        config=function()
+            require("Comment").setup()
+        end
+    };
     {"ggandor/lightspeed.nvim"};
     {"kyazdani42/nvim-tree.lua",
         lazy=true,
