@@ -8,7 +8,6 @@ require("lazy").setup({
     {"catppuccin/nvim"};
 
     -- tooling;
-    {"lewis6991/gitsigns.nvim"};
     {"fatih/vim-go", ft="go"};
     {"kyazdani42/nvim-web-devicons"};
     {"mhinz/vim-startify"};
@@ -66,7 +65,29 @@ require("lazy").setup({
     {"glepnir/lspsaga.nvim"};
     {"MunifTanjim/nui.nvim"};
     {"rcarriga/nvim-notify"};
-    {"folke/noice.nvim"};
+    {"folke/noice.nvim",
+        commit="f782acb6a7d4562e3551751fcff7152febd9138e",
+        config=function()
+            require("noice").setup({
+                cmdline = {
+                    format = {
+                        search_up = { icon = " " },
+                        search_down = { icon = " " },
+                    },
+                },
+                messages = {
+                    enabled = false,
+                },
+                notify = {
+                    enabled = false,
+                },
+                lsp = {
+                    progress = { enabled = false }
+                },
+            })
+        end
+    };
+    {"lewis6991/gitsigns.nvim"};
     {"nvim-lualine/lualine.nvim"};
     {"SmiteshP/nvim-navic"};
     {"ahmedkhalf/project.nvim"};
@@ -77,7 +98,7 @@ require("lazy").setup({
             local tools = {
                 runnables = {use_telescope = true},
                 inlay_hints = {only_current_line = true},
-                hover_actions = {auto_focus = true}
+                hover_actions = {auto_focus = true},
             }
             require('rust-tools').setup({
                 tools = tools,
@@ -85,6 +106,13 @@ require("lazy").setup({
                     on_attach = lsp_on_attach,
                     capabilities = capabilities,
                     flags = {debounce_text_changes = 150}
+                },
+                dap = {
+                    adapter = {
+                        type = "executable",
+                        command = "/opt/homebrew/opt/llvm/bin/lldb-vscode",
+                        name = "lldb",
+                    },
                 },
             })
         end,
@@ -109,6 +137,8 @@ require("lazy").setup({
             }
         end
     };
+    {"mfussenegger/nvim-dap"};
+    {"rcarriga/nvim-dap-ui"};
 
     -- completion
     {"hrsh7th/nvim-cmp"};

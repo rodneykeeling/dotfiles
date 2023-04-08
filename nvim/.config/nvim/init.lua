@@ -29,7 +29,7 @@ map("n", "N", "Nzz", opts)
 
 map("n", "<leader>d", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
 map("n", "<leader>r", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
-map("n", "<leader>e", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
+map("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
 map("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
 map("n", "<leader>=", "<cmd>lua vim.lsp.buf.format({async=true})<cr>", opts)
 
@@ -44,7 +44,7 @@ map("n", "<leader>l", "<C-w>l", opts)
 -- buffer stuff
 map("n", "<leader><tab>", "<cmd>bn<cr>", opts)
 map("n", "<leader><s-tab>", "<cmd>bp<cr>", opts)
-map("n", "<leader>bd", "<cmd>bd<cr>", opts)
+map("n", "<leader>x", "<cmd>bd<cr>", opts)
 
 map("t", "<esc>", [[<C-\><C-n>]], opts)
 

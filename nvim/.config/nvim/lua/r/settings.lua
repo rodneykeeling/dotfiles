@@ -95,21 +95,6 @@ require("colorizer").setup()
 
 vim.cmd[[ colorscheme catppuccin-macchiato ]]
 
-require("noice").setup({
-    cmdline = {
-        format = {
-            search_up = { icon = " " },
-            search_down = { icon = " " },
-        },
-    },
-    messages = {
-        enabled = false,
-    },
-    lsp = {
-        progress = { enabled = false }
-    },
-})
-
 local navic = require("nvim-navic")
 navic.setup({
     highlight = true,
@@ -150,7 +135,7 @@ local winbar_config = {
         lualine_y = {},
         lualine_z = {}
 }
-require('lualine').setup {
+require("lualine").setup {
     options = {
         icons_enabled = true,
         theme = {
@@ -173,9 +158,9 @@ require('lualine').setup {
     extensions = {}
 }
 
-require('project_nvim').setup()
+require("project_nvim").setup()
 
-require('gitsigns').setup{
+require("gitsigns").setup({
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
 
@@ -189,11 +174,11 @@ require('gitsigns').setup{
     map('n', '<leader>gp', gs.prev_hunk)
     map('n', '<leader>hp', gs.preview_hunk)
   end
-}
+})
 
 require("nvim-autopairs").setup()
 
-require('lspsaga').setup({
+require("lspsaga").setup({
     diagnostic = {
         on_insert = false,
     },
@@ -250,3 +235,32 @@ vim.api.nvim_set_hl(0, "NavicIconsOperator",      {default = true, fg = "#a9a1e1
 vim.api.nvim_set_hl(0, "NavicIconsTypeParameter", {default = true, fg = "#a9a1e1", bg = "#24273A"})
 vim.api.nvim_set_hl(0, "NavicText",               {default = true, bg = "#24273A"})
 vim.api.nvim_set_hl(0, "NavicSeparator",          {default = true, bg = "#24273A"})
+
+require("dap").adapters.lldb = {
+    type = "executable",
+    command = "/opt/homebrew/opt/llvm/bin/lldb-vscode", -- adjust as needed
+    name = "lldb",
+}
+
+local lldb = {
+    name = "Launch lldb",
+    type = "lldb", -- matches the adapter
+    request = "launch", -- could also attach to a currently running process
+    program = function()
+        return vim.fn.input(
+            "Path to executable: ",
+            vim.fn.getcwd() .. "/",
+            "file"
+        )
+    end,
+    cwd = "${workspaceFolder}",
+    stopOnEntry = false,
+    args = {},
+    runInTerminal = false,
+}
+
+require('dap').configurations.rust = {
+    lldb -- different debuggers or more configurations can be used here
+}
+
+require('dapui').setup()
