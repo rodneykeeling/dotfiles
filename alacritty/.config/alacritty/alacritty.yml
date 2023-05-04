@@ -80,7 +80,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: SauceCodePro Nerd Font
+    family: JetBrainsMonoNL Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -91,7 +91,7 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: SauceCodePro Nerd Font
+    family: JetBrainsMonoNL Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -102,7 +102,7 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: SauceCodePro Nerd Font
+    family: JetBrainsMonoNL Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -137,7 +137,7 @@ font:
   #
   # This is a global setting and will require a log out or restart to take
   # effect.
-  use_thin_strokes: true
+  # use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: false
@@ -296,8 +296,6 @@ live_config_reload: true
 # directory of the parent process will be used.
 working_directory: None
 
-# Send ESC (\x1b) before characters when alt is pressed.
-alt_send_esc: true
 
 debug:
   # Display the time it takes to redraw each frame.

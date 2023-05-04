@@ -36,6 +36,9 @@ require("telescope").setup {
             layout_config = {
                 height = 0.7
             }
+        },
+        buffers = {
+            initial_mode = "normal"
         }
     },
     extensions = {
@@ -54,6 +57,7 @@ require("telescope").load_extension("noice")
 require('telescope').load_extension('projects')
 
 map("n", "<leader>ff", [[<cmd>lua require"telescope.builtin".find_files()<cr>]], {})
+map("n", "<leader>bs", [[<cmd>lua require"telescope.builtin".buffers()<cr>]], {})
 map("n", "<leader>gf", [[<cmd>lua require"telescope.builtin".git_files({ cwd = vim.fn.expand("%:p:h") })<cr>]], {})
 map("n", "<leader>gs", [[<cmd>lua require"telescope.builtin".git_status()<cr>]], {})
 map("n", "<leader>p", [[<cmd>lua require"telescope".extensions.projects.projects()<cr>]], {})

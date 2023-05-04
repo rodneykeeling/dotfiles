@@ -30,6 +30,8 @@ map("n", "N", "Nzz", opts)
 map("n", "<leader>d", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
 map("n", "<leader>r", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
 map("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
+map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
+map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
 map("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
 map("n", "<leader>=", "<cmd>lua vim.lsp.buf.format({async=true})<cr>", opts)
 

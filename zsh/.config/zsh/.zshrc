@@ -48,10 +48,10 @@ PROMPT=$'%{$fg[white]%}%1~ %{$fg[magenta]%}\x00\xc2\xbb %{$fg[white]%}'
 alias cp="cp -i"
 alias rm="rm -i"
 alias mv="mv -i"
-alias ls="exa"
-alias la="exa -aF"
-alias ll="exa -l"
-alias ..="cd ..; exa"
+alias ls="lsd"
+alias la="lsd -aF"
+alias ll="lsd -l"
+alias ..="cd ..; lsd"
 alias tree="tree -C -I '*.pyc|__pycache__|node_modules'"
 
 # zshmarks shortcuts

@@ -1,7 +1,6 @@
 require("lazy").setup({
     -- themes/colors
     {"norcalli/nvim-colorizer.lua"};
-    {"projekt0n/github-nvim-theme", lazy=true};
     {"rakr/vim-one", lazy=true};
     {"NTBBloodbath/doom-one.nvim", lazy=true};
     {"rebelot/kanagawa.nvim", lazy=true};
@@ -53,10 +52,10 @@ require("lazy").setup({
                         guibg = "#ffffff",
                     },
                     NormalFloat = {
-                        guibg = '#24273A',
+                        guibg = "#24273A",
                     },
                 },
-                direction = 'horizontal',
+                direction = "horizontal",
                 shade_terminals = false,
             })
         end,
@@ -100,7 +99,7 @@ require("lazy").setup({
                 inlay_hints = {only_current_line = true},
                 hover_actions = {auto_focus = true},
             }
-            require('rust-tools').setup({
+            require("rust-tools").setup({
                 tools = tools,
                 server = {
                     on_attach = lsp_on_attach,
@@ -121,7 +120,7 @@ require("lazy").setup({
         lazy=true,
         keys={{"<leader>n", "<cmd>Neorg workspace notes<cr>"}},
         config=function()
-            require('neorg').setup {
+            require("neorg").setup {
                 load = {
                     ["core.defaults"] = {}, -- Loads default behaviour
                     ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
