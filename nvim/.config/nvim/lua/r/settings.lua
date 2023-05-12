@@ -98,6 +98,9 @@ vim.cmd[[ colorscheme catppuccin-macchiato ]]
 local navic = require("nvim-navic")
 navic.setup({
     highlight = true,
+    lsp = {
+        auto_attach = true,
+    }
 })
 local winbar_config = {
         lualine_a = {},
@@ -135,6 +138,7 @@ local winbar_config = {
         lualine_y = {},
         lualine_z = {}
 }
+
 require("lualine").setup {
     options = {
         icons_enabled = true,
@@ -142,7 +146,7 @@ require("lualine").setup {
             normal = { c = { bg = '#24273A' } },
             inactive = { c = { bg = '#24273A' } },
         },
-        component_separators = { left = '>', right = '>'},
+        component_separators = { left = '', right = ''},
         section_separators = { left = '', right = ''},
         refresh = {
             statusline = 1000,

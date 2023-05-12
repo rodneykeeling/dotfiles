@@ -102,8 +102,12 @@ require("lazy").setup({
             require("rust-tools").setup({
                 tools = tools,
                 server = {
-                    on_attach = lsp_on_attach,
-                    capabilities = capabilities,
+                    on_attach = function(client, bufnr)
+                        if client.server_capabilities.documentSymbolProvider then
+                            require("nvim-navic").attach(client, bufnr)
+                        end
+                    end,
+                    capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
                     flags = {debounce_text_changes = 150}
                 },
                 dap = {

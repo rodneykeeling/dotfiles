@@ -45,6 +45,7 @@ bindkey "^[[B" history-beginning-search-forward
 
 PROMPT=$'%{$fg[white]%}%1~ %{$fg[magenta]%}\x00\xc2\xbb %{$fg[white]%}'
 
+alias watch="viddy "
 alias cp="cp -i"
 alias rm="rm -i"
 alias mv="mv -i"
