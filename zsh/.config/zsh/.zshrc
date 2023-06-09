@@ -31,7 +31,7 @@ select-word-style bash
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # plug-ins
-source /Users/rodneykeeling/dev/random/antigen/antigen.zsh
+source /Users/rodneykeeling/dev/clones/antigen/antigen.zsh
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle jocelynmallon/zshmarks
 antigen apply
@@ -63,6 +63,9 @@ alias gb='git branch'
 alias gs="git status"
 alias gd="git diff"
 alias gch="git checkout"
+alias gst="git stash"
+alias gsta="git stash apply"
+alias gpom="git pull origin $(awk -F "/" '{print $NF}' .git/refs/remotes/origin/HEAD 2>/dev/null)"
 function gl() {
     current_branch=$(git branch | grep \* | cut -d ' ' -f2)
     git log --graph --pretty=format:'%Cred%h%Creset - %Creset%s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit $current_branch --not master

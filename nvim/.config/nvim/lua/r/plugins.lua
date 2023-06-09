@@ -1,13 +1,11 @@
 require("lazy").setup({
     -- themes/colors
     {"norcalli/nvim-colorizer.lua"};
-    {"rakr/vim-one", lazy=true};
     {"NTBBloodbath/doom-one.nvim", lazy=true};
     {"rebelot/kanagawa.nvim", lazy=true};
     {"catppuccin/nvim"};
 
     -- tooling;
-    {"fatih/vim-go", ft="go"};
     {"kyazdani42/nvim-web-devicons"};
     {"mhinz/vim-startify"};
     {"neovim/nvim-lspconfig"};
@@ -119,26 +117,6 @@ require("lazy").setup({
                 },
             })
         end,
-    };
-    {"nvim-neorg/neorg",
-        lazy=true,
-        keys={{"<leader>n", "<cmd>Neorg workspace notes<cr>"}},
-        config=function()
-            require("neorg").setup {
-                load = {
-                    ["core.defaults"] = {}, -- Loads default behaviour
-                    ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
-                    ["core.norg.dirman"] = { -- Manages Neorg workspaces
-                        config = {
-                            workspaces = {
-                                notes = "~/notes",
-                            },
-                        },
-                    },
-                    ["core.norg.qol.todo_items"] = {},
-                },
-            }
-        end
     };
     {"mfussenegger/nvim-dap"};
     {"rcarriga/nvim-dap-ui"};

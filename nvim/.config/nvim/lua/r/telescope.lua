@@ -17,15 +17,23 @@ require("telescope").setup {
                 prompt_position = "top",
             },
             width = 85,
-            height = 0.40,
         },
     },
     pickers = {
         find_files = {
+            layout_config = {
+                height = 0.5
+            },
             previewer = false,
         },
         git_files = {
+            layout_config = {
+                height = 0.5
+            },
             previewer = false,
+        },
+        git_status = {
+            initial_mode = "normal"
         },
         live_grep = {
             layout_config = {
