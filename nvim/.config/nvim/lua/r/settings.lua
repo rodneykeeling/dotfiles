@@ -91,6 +91,8 @@ g.go_doc_keywordprg_enabled = 0
 
 vim.opt.termguicolors = true
 
+opt.clipboard = unnamedplus
+
 require("colorizer").setup()
 
 vim.cmd[[ colorscheme catppuccin-macchiato ]]
@@ -98,6 +100,34 @@ vim.cmd[[ colorscheme catppuccin-macchiato ]]
 local navic = require("nvim-navic")
 navic.setup({
     highlight = true,
+    icons = {
+        File = ' ',
+        Module = ' ',
+        Namespace = ' ',
+        Package = ' ',
+        Class = ' ',
+        Method = ' ',
+        Property = ' ',
+        Field = ' ',
+        Constructor = ' ',
+        Enum = ' ',
+        Interface = ' ',
+        Function = ' ',
+        Variable = ' ',
+        Constant = ' ',
+        String = ' ',
+        Number = ' ',
+        Boolean = ' ',
+        Array = ' ',
+        Object = ' ',
+        Key = ' ',
+        Null = ' ',
+        EnumMember = ' ',
+        Struct = ' ',
+        Event = ' ',
+        Operator = ' ',
+        TypeParameter = ' '
+    },
     lsp = {
         auto_attach = true,
     }
