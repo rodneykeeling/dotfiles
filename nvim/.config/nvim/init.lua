@@ -50,6 +50,9 @@ map("n", "<leader>x", "<cmd>bd<cr>", opts)
 
 map("t", "<esc>", [[<C-\><C-n>]], opts)
 
+-- obsidian note pop-up
+map("n", "<leader>o", "<cmd>belowright 20 split<cr><cmd>ObsidianNew<cr><cr>i", opts)
+
 -- snippets jumping
 vim.cmd[[ xmap        <C-l>   <Plug>(vsnip-cut-text) ]]
 vim.cmd[[ nmap        <C-l>   <Plug>(vsnip-cut-text) ]]

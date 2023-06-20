@@ -16,6 +16,39 @@ require("lazy").setup({
             require("Comment").setup()
         end
     };
+    {"aserowy/tmux.nvim",
+        config=function()
+            require("tmux").setup()
+        end
+    };
+    {"epwalsh/obsidian.nvim",
+        opts = {
+            dir = "/Users/rodneykeeling/Documents/diggin in the crates",
+            notes_subdir = "nvim",
+            templates = {
+                subdir = "templates",
+            },
+            -- note name = repository name plus current branch name
+            note_id_func = function()
+                local name = ""
+                local dir = io.popen("basename `git rev-parse --show-toplevel`")
+                if dir then
+                    cwd = dir:read("*l")
+                    dir:close()
+                end
+                local branch = io.popen("git rev-parse --abbrev-ref HEAD 2> /dev/null")
+                if branch then
+                    name = branch:read("*l")
+                    branch:close()
+                end
+                return cwd .. "_" .. name
+            end,
+            disable_frontmatter = true,
+        },
+        config = function(_, opts)
+            require("obsidian").setup(opts)
+        end
+    };
     {"ggandor/lightspeed.nvim"};
     {"kyazdani42/nvim-tree.lua",
         lazy=true,
