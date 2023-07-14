@@ -57,18 +57,6 @@ require("lazy").setup({
             require("nvim-tree").setup()
         end,
     };
-    {"jose-elias-alvarez/null-ls.nvim",
-        ft="python",
-        config=function()
-            require("null-ls").setup({
-                sources = {
-                    require("null-ls").builtins.formatting.black,
-                    require("null-ls").builtins.formatting.isort,
-                    require("null-ls").builtins.formatting.trim_whitespace,
-                },
-            })
-        end
-    },
     {"akinsho/toggleterm.nvim",
         branch="main",
         lazy=true,
@@ -96,7 +84,7 @@ require("lazy").setup({
     {"MunifTanjim/nui.nvim"};
     {"rcarriga/nvim-notify"};
     {"folke/noice.nvim",
-        commit="f782acb6a7d4562e3551751fcff7152febd9138e",
+        --commit="f782acb6a7d4562e3551751fcff7152febd9138e",
         config=function()
             require("noice").setup({
                 cmdline = {

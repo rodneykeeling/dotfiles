@@ -58,20 +58,18 @@ alias tree="tree -C -I '*.pyc|__pycache__|node_modules'"
 # zshmarks shortcuts
 alias j="jump"
 
-# git aliasesss... aliai? 
+# git aliases
 alias gb='git branch'
 alias gs="git status"
 alias gd="git diff"
 alias gch="git checkout"
 alias gst="git stash"
 alias gsta="git stash apply"
-alias gpom="git pull origin $(awk -F "/" '{print $NF}' .git/refs/remotes/origin/HEAD 2>/dev/null)"
 function gl() {
     current_branch=$(git branch | grep \* | cut -d ' ' -f2)
     git log --graph --pretty=format:'%Cred%h%Creset - %Creset%s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit $current_branch --not master
 }
 
-alias ag='echo "Did you mean rg?"'
 alias rg="rg --smart-case --no-heading --glob '!*.sql' --glob '!*.map' -M 1500"
 
 alias k='kubectl'
@@ -88,8 +86,6 @@ alias dcdr='docker compose -f docker compose.yml -f docker compose.dev.yml run -
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-
-#export TERM=xterm-256color
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

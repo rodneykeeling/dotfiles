@@ -62,7 +62,7 @@ require("telescope").setup {
 
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("noice")
-require('telescope').load_extension('projects')
+require("telescope").load_extension("projects")
 
 map("n", "<leader>ff", [[<cmd>lua require"telescope.builtin".find_files()<cr>]], {})
 map("n", "<leader>bs", [[<cmd>lua require"telescope.builtin".buffers()<cr>]], {})

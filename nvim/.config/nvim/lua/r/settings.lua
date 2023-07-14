@@ -101,32 +101,32 @@ local navic = require("nvim-navic")
 navic.setup({
     highlight = true,
     icons = {
-        File = ' ',
-        Module = ' ',
-        Namespace = ' ',
-        Package = ' ',
-        Class = ' ',
-        Method = ' ',
-        Property = ' ',
-        Field = ' ',
-        Constructor = ' ',
-        Enum = ' ',
-        Interface = ' ',
-        Function = ' ',
-        Variable = ' ',
-        Constant = ' ',
-        String = ' ',
-        Number = ' ',
-        Boolean = ' ',
-        Array = ' ',
-        Object = ' ',
-        Key = ' ',
-        Null = ' ',
-        EnumMember = ' ',
-        Struct = ' ',
-        Event = ' ',
-        Operator = ' ',
-        TypeParameter = ' '
+        File = " ",
+        Module = " ",
+        Namespace = " ",
+        Package = " ",
+        Class = " ",
+        Method = "𝜆 ",
+        Property = " ",
+        Field = " ",
+        Constructor = " ",
+        Enum = " ",
+        Interface = " ",
+        Function = "𝜆 ",
+        Variable = " ",
+        Constant = " ",
+        String = " ",
+        Number = " ",
+        Boolean = " ",
+        Array = " ",
+        Object = " ",
+        Key = " ",
+        Null = " ",
+        EnumMember = " ",
+        Struct = " ",
+        Event = " ",
+        Operator = " ",
+        TypeParameter = " "
     },
     lsp = {
         auto_attach = true,
@@ -136,32 +136,32 @@ local winbar_config = {
         lualine_a = {},
         lualine_b = {},
         lualine_c = {
-            { 'filetype', icon_only = true, separator = false, padding = 0 },
+            { "filetype", icon_only = true, separator = false, padding = 0 },
             {
-                'filename',
+                "filename",
                 path=1,
-                symbols = { modified = '●', unnamed = '', readonly = '' },
-                color = { fg = '#da8548' },
+                symbols = { modified = "●", unnamed = "", readonly = "" },
+                color = { fg = "#da8548" },
                 padding = 1
             },
             {
                 navic.get_location,
                 cond = navic.is_available,
-                color = { bg = '#24273A' },
+                color = { bg = "#24273A" },
                 padding = { left = 1, right = 0 },
             }
         },
         lualine_x = {
             {
-                'buffers',
+                "buffers",
                 show_filename_only = true,
                 symbols = {
-                    alternate_file = '',
-                    unnamed = '',
+                    alternate_file = "",
+                    unnamed = "",
                 },
                 buffers_color = {
-                    active = { bg = '#24273A' },
-                    inactive = { fg = '#555555', bg = '#24273A' }
+                    active = { bg = "#24273A" },
+                    inactive = { fg = "#555555", bg = "#24273A" }
                 },
             }
         },
@@ -173,11 +173,11 @@ require("lualine").setup {
     options = {
         icons_enabled = true,
         theme = {
-            normal = { c = { bg = '#24273A' } },
-            inactive = { c = { bg = '#24273A' } },
+            normal = { c = { bg = "#24273A" } },
+            inactive = { c = { bg = "#24273A" } },
         },
-        component_separators = { left = '', right = ''},
-        section_separators = { left = '', right = ''},
+        component_separators = { left = "", right = ""},
+        section_separators = { left = "", right = ""},
         refresh = {
             statusline = 1000,
             tabline = 1000,
@@ -204,9 +204,9 @@ require("gitsigns").setup({
       vim.keymap.set(mode, l, r, opts)
     end
 
-    map('n', '<leader>gn', gs.next_hunk)
-    map('n', '<leader>gp', gs.prev_hunk)
-    map('n', '<leader>hp', gs.preview_hunk)
+    map("n", "<leader>gn", gs.next_hunk)
+    map("n", "<leader>gp", gs.prev_hunk)
+    map("n", "<leader>hp", gs.preview_hunk)
   end
 })
 
@@ -217,23 +217,23 @@ require("lspsaga").setup({
         on_insert = false,
     },
     ui = {
-        border = 'rounded',
-        code_action = '',
+        border = "rounded",
+        code_action = "",
         colors = {
             --float window normal bakcground color
-            normal_bg = '#24273A',
+            normal_bg = "#24273A",
             --title background color
-            title_bg = '#afd700',
-            red = '#e95678',
-            magenta = '#b33076',
-            orange = '#FF8700',
-            yellow = '#f7bb3b',
-            green = '#afd700',
-            cyan = '#36d0e0',
-            blue = '#61afef',
-            purple = '#CBA6F7',
-            white = '#00ff00',
-            black = '#ff0000',
+            title_bg = "#afd700",
+            red = "#e95678",
+            magenta = "#b33076",
+            orange = "#FF8700",
+            yellow = "#f7bb3b",
+            green = "#afd700",
+            cyan = "#36d0e0",
+            blue = "#61afef",
+            purple = "#CBA6F7",
+            white = "#00ff00",
+            black = "#ff0000",
         }
     },
     symbol_in_winbar = {
@@ -293,8 +293,8 @@ local lldb = {
     runInTerminal = false,
 }
 
-require('dap').configurations.rust = {
+require("dap").configurations.rust = {
     lldb -- different debuggers or more configurations can be used here
 }
 
-require('dapui').setup()
+require("dapui").setup()
