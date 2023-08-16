@@ -35,7 +35,7 @@ map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
 map("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
 map("n", "<leader>=", "<cmd>lua vim.lsp.buf.format({async=true})<cr>", opts)
 
-map("n", "<leader>ld", "<cmd>Lspsaga lsp_finder<cr>", opts)
+map("n", "<leader>ld", "<cmd>Lspsaga finder<cr>", opts)
 
 -- <C-w> remaps
 map("n", "<leader>h", "<C-w>h", opts)

@@ -57,34 +57,26 @@ require("lazy").setup({
             require("nvim-tree").setup()
         end,
     };
-    {"akinsho/toggleterm.nvim",
-        branch="main",
-        lazy=true,
-        keys={{"<leader>~", "<cmd>ToggleTerm<cr>"}},
+    {"jose-elias-alvarez/null-ls.nvim",
+        ft="python",
         config=function()
-            require("toggleterm").setup({
-                highlights = {
-                    Normal = {
-                        guibg = "#24273A",
-                    },
-                    NormalBorder = {
-                        guibg = "#ffffff",
-                    },
-                    NormalFloat = {
-                        guibg = "#24273A",
-                    },
+            require("null-ls").setup({
+                sources = {
+                    require("null-ls").builtins.formatting.black,
+                    require("null-ls").builtins.formatting.isort,
+                    require("null-ls").builtins.formatting.trim_whitespace,
                 },
-                direction = "horizontal",
-                shade_terminals = false,
             })
-        end,
-    };
+        end
+    },
     {"ruanyl/vim-gh-line"};
     {"glepnir/lspsaga.nvim"};
     {"MunifTanjim/nui.nvim"};
     {"rcarriga/nvim-notify"};
     {"folke/noice.nvim",
         --commit="f782acb6a7d4562e3551751fcff7152febd9138e",
+        -- no idea what this does, but it fixes the startup error seemingly caused by noice and gitsigns
+        event = "BufReadPost",
         config=function()
             require("noice").setup({
                 cmdline = {
@@ -105,7 +97,16 @@ require("lazy").setup({
             })
         end
     };
-    {"lewis6991/gitsigns.nvim"};
+    {"lewis6991/gitsigns.nvim",
+        lazy=false,
+        keys={
+            {"<leader>gn", "<cmd>Gitsigns next_hunk<cr>"},
+            {"<leader>gp", "<cmd>Gitsigns prev_hunk<cr>"},
+        },
+        config=function()
+            require("gitsigns").setup()
+        end
+    };
     {"nvim-lualine/lualine.nvim"};
     {"SmiteshP/nvim-navic"};
     {"ahmedkhalf/project.nvim"};
