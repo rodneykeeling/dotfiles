@@ -74,8 +74,6 @@ require("lazy").setup({
     {"MunifTanjim/nui.nvim"};
     {"rcarriga/nvim-notify"};
     {"folke/noice.nvim",
-        --commit="f782acb6a7d4562e3551751fcff7152febd9138e",
-        -- no idea what this does, but it fixes the startup error seemingly caused by noice and gitsigns
         event = "BufReadPost",
         config=function()
             require("noice").setup({
@@ -97,14 +95,23 @@ require("lazy").setup({
             })
         end
     };
-    {"lewis6991/gitsigns.nvim",
+    {"tanvirtin/vgit.nvim",
         lazy=false,
         keys={
-            {"<leader>gn", "<cmd>Gitsigns next_hunk<cr>"},
-            {"<leader>gp", "<cmd>Gitsigns prev_hunk<cr>"},
+            {"<leader>gn", "<cmd>VGit hunk_down<cr>"},
+            {"<leader>gp", "<cmd>VGit hunk_up<cr>"},
         },
         config=function()
-            require("gitsigns").setup()
+            require("vgit").setup({
+                settings = {
+                    live_blame = {
+                        enabled = false,
+                    },
+                    authorship_code_lens = {
+                        enabled = false,
+                    },
+                }
+            })
         end
     };
     {"nvim-lualine/lualine.nvim"};
