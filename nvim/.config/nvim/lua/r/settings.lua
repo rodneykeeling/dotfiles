@@ -28,7 +28,7 @@ opt.shiftwidth = 4
 opt.tabstop = 4
 opt.smarttab = true
 opt.lbr = true
-opt.tw = 500
+opt.tw = 90
 
 opt.wrap = false
 
