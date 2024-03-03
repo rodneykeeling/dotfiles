@@ -27,10 +27,12 @@ local on_attach = function(client, bufnr)
     end
 end
 
+require "lspconfig".cssls.setup { capabilities = capabilities, on_attach = on_attach, }
+require "lspconfig".eslint.setup { capabilities = capabilities, on_attach = on_attach, }
 require "lspconfig".gopls.setup { capabilities = capabilities, on_attach = on_attach, }
 require "lspconfig".graphql.setup { capabilities = capabilities, on_attach = on_attach, }
+require "lspconfig".html.setup { capabilities = capabilities, on_attach = on_attach, }
 require "lspconfig".lua_ls.setup { capabilities = capabilities, on_attach = on_attach, }
-require "lspconfig".ruff_lsp.setup { capabilities = capabilities, on_attach = on_attach, }
 require "lspconfig".pyright.setup {
     capabilities = capabilities,
     on_attach = on_attach,
@@ -47,9 +49,10 @@ require "lspconfig".pyright.setup {
         client.config.settings.python.pythonPath = get_python_path(client.config.root_dir)
     end
 }
+require "lspconfig".ruff_lsp.setup { capabilities = capabilities, on_attach = on_attach, }
 require "lspconfig".rust_analyzer.setup { capabilities = capabilities, on_attach = on_attach, }
-require "lspconfig".tsserver.setup { capabilities = capabilities, on_attach = on_attach, }
 require "lspconfig".svelte.setup { capabilities = capabilities, on_attach = on_attach, }
+require "lspconfig".tsserver.setup { capabilities = capabilities, on_attach = on_attach, }
 require "lspconfig".yamlls.setup {
     capabilities = capabilities,
     on_attach = on_attach,

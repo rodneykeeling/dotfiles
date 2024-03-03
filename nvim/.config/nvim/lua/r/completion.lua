@@ -1,5 +1,5 @@
 -- Setup nvim-cmp.
-local cmp = require"cmp"
+local cmp = require "cmp"
 
 cmp.setup({
     snippet = {
@@ -18,8 +18,8 @@ cmp.setup({
     },
     sources = {
         { name = "nvim_lsp", keyword_length = 2 },
-        { name = "vsnip", keyword_length = 2 },
-        { name = "buffer", keyword_length = 2 },
+        { name = "vsnip",    keyword_length = 2 },
+        { name = "buffer",   keyword_length = 2 },
         { name = "path" },
     },
     formatting = {
@@ -36,6 +36,6 @@ cmp.setup({
 
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 cmp.event:on(
-  "confirm_done",
-  cmp_autopairs.on_confirm_done()
+    "confirm_done",
+    cmp_autopairs.on_confirm_done()
 )
