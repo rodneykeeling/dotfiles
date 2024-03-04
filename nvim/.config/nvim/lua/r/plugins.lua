@@ -53,17 +53,22 @@ require("lazy").setup({
         end,
     },
     {
-        "jose-elias-alvarez/null-ls.nvim",
-        ft = { "python", "javascript", "typescript", "typescriptreact" },
-        config = function()
-            require("null-ls").setup({
-                sources = {
-                    require("null-ls").builtins.formatting.prettier,
-                    require("null-ls").builtins.formatting.ruff,
-                    require("null-ls").builtins.formatting.trim_whitespace,
-                },
-            })
-        end
+        'stevearc/conform.nvim',
+        opts = {
+            notify_on_error = false,
+            format_on_save = {
+                async = true,
+                timeout_ms = 500,
+                lsp_fallback = true,
+            },
+            formatters_by_ft = {
+                ["*"] = { "trim_whitespace" },
+                python = { "ruff_fix", "ruff_format" },
+                javascript = { "prettier" },
+                typescriptreact = { "prettier" },
+                typescript = { "prettier" },
+            }
+        },
     },
     { "ruanyl/vim-gh-line" },
     { "glepnir/lspsaga.nvim" },

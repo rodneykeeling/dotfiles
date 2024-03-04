@@ -25,14 +25,18 @@ vim.keymap.set("n", "n", "nzz", opts)
 vim.keymap.set("n", "N", "Nzz", opts)
 
 vim.keymap.set("n", "<leader>d", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
-vim.keymap.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
 vim.keymap.set("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
 vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
 vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
-vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
-vim.keymap.set("n", "<leader>=", "<cmd>lua vim.lsp.buf.format({async=true})<cr>", opts)
-
-vim.keymap.set("n", "<leader>ld", "<cmd>Lspsaga finder<cr>", opts)
+vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+vim.keymap.set("n", "<leader>=", function()
+    require("conform").format({
+        async = true,
+        lsp_fallback = true,
+        timeout_ms = 500,
+    })
+end, opts)
 
 -- <C-w> remaps
 vim.keymap.set("n", "<leader>h", "<C-w>h", opts)

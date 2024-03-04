@@ -65,6 +65,7 @@ require("telescope").load_extension("fzf")
 require("telescope").load_extension("noice")
 require("telescope").load_extension("projects")
 
+vim.keymap.set("n", "<leader>r", [[<cmd>lua require"telescope.builtin".lsp_references()<cr>]], {})
 vim.keymap.set("n", "<leader>ff", [[<cmd>lua require"telescope.builtin".find_files()<cr>]], {})
 vim.keymap.set("n", "<leader>bs", [[<cmd>lua require"telescope.builtin".buffers()<cr>]], {})
 vim.keymap.set("n", "<leader>gf", [[<cmd>lua require"telescope.builtin".git_files({ cwd = vim.fn.expand("%:p:h") })<cr>]],
