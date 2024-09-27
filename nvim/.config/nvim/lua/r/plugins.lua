@@ -1,14 +1,20 @@
 require("lazy").setup({
     -- themes/colors
     { "norcalli/nvim-colorizer.lua" },
-    { "NTBBloodbath/doom-one.nvim", lazy = true },
-    { "rebelot/kanagawa.nvim",      lazy = true },
     { "catppuccin/nvim" },
+    -- { "NTBBloodbath/doom-one.nvim" },
 
     -- tooling;
     {
         "stevearc/dressing.nvim",
         opts = {},
+    },
+    {
+        'smoka7/hop.nvim',
+        version = "*",
+        opts = {
+            keys = 'etovxqpdygfblzhckisuran'
+        }
     },
     {
         "williamboman/mason.nvim",
@@ -21,7 +27,7 @@ require("lazy").setup({
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = {
-                    "cssls", "eslint", "graphql", "html", "lua_ls", "pyright", "rust_analyzer", "tsserver"
+                    "cssls", "eslint", "graphql", "html", "lua_ls", "pyright", "rust_analyzer"
                 },
             })
         end
@@ -30,11 +36,19 @@ require("lazy").setup({
     { "mhinz/vim-startify" },
     { "neovim/nvim-lspconfig" },
     { "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },
-    { "Yggdroot/indentLine" },
     {
-        "numToStr/Comment.nvim",
+        "lukas-reineke/indent-blankline.nvim",
         config = function()
-            require("Comment").setup()
+            local hooks = require "ibl.hooks"
+            hooks.register(
+                hooks.type.WHITESPACE,
+                hooks.builtin.hide_first_space_indent_level
+            )
+            require("ibl").setup({
+                scope = {
+                    enabled = false,
+                },
+            })
         end
     },
     {
@@ -43,35 +57,25 @@ require("lazy").setup({
             require("tmux").setup()
         end
     },
-    { "ggandor/lightspeed.nvim" },
-    {
-        "kyazdani42/nvim-tree.lua",
-        lazy = true,
-        keys = { { "<leader>t", "<cmd>NvimTreeToggle<cr>" } },
-        config = function()
-            require("nvim-tree").setup()
-        end,
-    },
     {
         'stevearc/conform.nvim',
         opts = {
             notify_on_error = false,
-            format_on_save = {
-                async = true,
-                timeout_ms = 500,
-                lsp_fallback = true,
-            },
             formatters_by_ft = {
                 ["*"] = { "trim_whitespace" },
                 python = { "ruff_fix", "ruff_format" },
                 javascript = { "prettier" },
                 typescriptreact = { "prettier" },
                 typescript = { "prettier" },
-            }
+            },
+            format_after_save = {
+                async = true,
+                lsp_fallback = true,
+                timeout_ms = 2500,
+            },
         },
     },
     { "ruanyl/vim-gh-line" },
-    { "glepnir/lspsaga.nvim" },
     { "MunifTanjim/nui.nvim" },
     { "rcarriga/nvim-notify" },
     {
@@ -117,6 +121,12 @@ require("lazy").setup({
             })
         end
     },
+    {
+        "FabijanZulj/blame.nvim",
+        config = function()
+            require("blame").setup()
+        end
+    },
     { "nvim-lualine/lualine.nvim" },
     { "SmiteshP/nvim-navic" },
     { "ahmedkhalf/project.nvim" },
@@ -142,7 +152,33 @@ require("lazy").setup({
                         .make_client_capabilities()),
                     flags = { debounce_text_changes = 150 }
                 },
+                dap = {
+                    adapter = {
+                        type = "executable",
+                        command = "/opt/homebrew/opt/llvm/bin/lldb-vscode",
+                        name = "lldb",
+                    },
+                },
             })
+        end,
+    },
+    { "mfussenegger/nvim-dap" },
+    { "rcarriga/nvim-dap-ui" },
+    {
+        'kristijanhusak/vim-dadbod-ui',
+        dependencies = {
+            { 'tpope/vim-dadbod',                     lazy = true },
+            { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true }, -- Optional
+        },
+        cmd = {
+            'DBUI',
+            'DBUIToggle',
+            'DBUIAddConnection',
+            'DBUIFindBuffer',
+        },
+        init = function()
+            -- Your DBUI configuration
+            vim.g.db_ui_use_nerd_fonts = 1
         end,
     },
 

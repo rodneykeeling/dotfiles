@@ -34,6 +34,13 @@ cmp.setup({
     },
 })
 
+cmp.setup.filetype({ "mysql", "sql" }, {
+    sources = {
+        { name = "vim-dadbod-completion" },
+        { name = "buffer" },
+    }
+})
+
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 cmp.event:on(
     "confirm_done",

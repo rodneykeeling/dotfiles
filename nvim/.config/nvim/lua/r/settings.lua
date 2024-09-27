@@ -53,6 +53,7 @@ vim.opt.cmdheight = 1
 vim.g.indentLine_char = "▏"
 vim.g.indentLine_first_char = "▏"
 vim.g.indentLine_showFirstIndentLevel = 0
+vim.g.indentLine_fileTypeExclude = { "markdown" }
 
 -- allow mousewheel scrolling in tmux+vim
 vim.opt.mouse = "a"
@@ -191,34 +192,6 @@ require("project_nvim").setup()
 
 require("nvim-autopairs").setup()
 
-require("lspsaga").setup({
-    diagnostic = {
-        on_insert = false,
-    },
-    ui = {
-        border = "rounded",
-        code_action = "",
-        colors = {
-            --float window normal bakcground color
-            normal_bg = "#24273A",
-            --title background color
-            title_bg = "#afd700",
-            red = "#e95678",
-            magenta = "#b33076",
-            orange = "#FF8700",
-            yellow = "#f7bb3b",
-            green = "#afd700",
-            cyan = "#36d0e0",
-            blue = "#61afef",
-            purple = "#CBA6F7",
-            white = "#00ff00",
-            black = "#ff0000",
-        }
-    },
-    symbol_in_winbar = {
-        enable = false,
-    }
-})
 
 vim.api.nvim_set_hl(0, "NavicIconsFile", { default = true, fg = "#a9a1e1", bg = "#24273A" })
 vim.api.nvim_set_hl(0, "NavicIconsNamespace", { default = true, fg = "#a9a1e1", bg = "#24273A" })

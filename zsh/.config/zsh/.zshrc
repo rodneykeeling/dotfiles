@@ -63,14 +63,12 @@ alias gb='git branch'
 alias gs="git status"
 alias gd="git diff"
 alias gch="git checkout"
+alias gpom="git pull origin main 2> /dev/null || git pull origin master"
 alias gst="git stash"
 alias gsta="git stash apply"
-function gl() {
-    current_branch=$(git branch | grep \* | cut -d ' ' -f2)
-    git log --graph --pretty=format:'%Cred%h%Creset - %Creset%s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit $current_branch --not master
-}
+alias gl="git log --graph --pretty=format:'%C(auto)%h -%d %s %Creset%s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
-alias rg="rg --smart-case --no-heading --glob '!*.sql' --glob '!*.map' -M 1500"
+alias rg="rg --smart-case --no-heading --glob '!*.map' -M 1500"
 
 alias k='kubectl'
 

@@ -50,9 +50,10 @@ require "lspconfig".pyright.setup {
     end
 }
 require "lspconfig".ruff_lsp.setup { capabilities = capabilities, on_attach = on_attach, }
-require "lspconfig".rust_analyzer.setup { capabilities = capabilities, on_attach = on_attach, }
+require "lspconfig".rust_analyzer.setup { capabilities, on_attach = on_attach, }
 require "lspconfig".svelte.setup { capabilities = capabilities, on_attach = on_attach, }
-require "lspconfig".tsserver.setup { capabilities = capabilities, on_attach = on_attach, }
+require "lspconfig".terraformls.setup { capabilities = capabilities, on_attach = on_attach, }
+require "lspconfig".ts_ls.setup { capabilities = capabilities, on_attach = on_attach, }
 require "lspconfig".yamlls.setup {
     capabilities = capabilities,
     on_attach = on_attach,
