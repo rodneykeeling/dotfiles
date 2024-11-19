@@ -49,7 +49,7 @@ require "lspconfig".pyright.setup {
         client.config.settings.python.pythonPath = get_python_path(client.config.root_dir)
     end
 }
-require "lspconfig".ruff_lsp.setup { capabilities = capabilities, on_attach = on_attach, }
+require "lspconfig".ruff.setup { capabilities = capabilities, on_attach = on_attach, }
 require "lspconfig".rust_analyzer.setup { capabilities, on_attach = on_attach, }
 require "lspconfig".svelte.setup { capabilities = capabilities, on_attach = on_attach, }
 require "lspconfig".terraformls.setup { capabilities = capabilities, on_attach = on_attach, }

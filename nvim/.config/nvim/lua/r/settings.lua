@@ -11,6 +11,7 @@ vim.opt.listchars = "tab:>-,trail:."
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.hidden = true
+vim.opt.cursorline = true
 
 -- Turn backup off
 vim.opt.backup = false
@@ -175,9 +176,9 @@ require("lualine").setup {
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         refresh = {
-            statusline = 1000,
-            tabline = 1000,
-            winbar = 1000,
+            statusline = 100,
+            tabline = 100,
+            winbar = 100,
         }
     },
     sections = {},
@@ -187,8 +188,6 @@ require("lualine").setup {
     inactive_winbar = {},
     extensions = {}
 }
-
-require("project_nvim").setup()
 
 require("nvim-autopairs").setup()
 

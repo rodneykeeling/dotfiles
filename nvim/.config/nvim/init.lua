@@ -51,6 +51,8 @@ vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
 -- obsidian note pop-up
 vim.keymap.set("n", "<leader>o", "<cmd>belowright 20 split<cr><cmd>ObsidianNew<cr><cr>i", opts)
 
+vim.keymap.set("n", "f", "<cmd>HopChar1<cr>", opts)
+
 -- snippets jumping
 vim.cmd [[ xmap        <C-l>   <Plug>(vsnip-cut-text) ]]
 vim.cmd [[ nmap        <C-l>   <Plug>(vsnip-cut-text) ]]

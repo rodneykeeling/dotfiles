@@ -63,7 +63,6 @@ require("telescope").setup {
 
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("noice")
-require("telescope").load_extension("projects")
 
 vim.keymap.set("n", "<leader>r", [[<cmd>lua require"telescope.builtin".lsp_references()<cr>]], {})
 vim.keymap.set("n", "<leader>ff", [[<cmd>lua require"telescope.builtin".find_files()<cr>]], {})
@@ -72,7 +71,6 @@ vim.keymap.set("n", "<leader>gf", [[<cmd>lua require"telescope.builtin".git_file
     {})
 vim.keymap.set("n", "<leader>gs", [[<cmd>lua require"telescope.builtin".git_status()<cr>]], {})
 vim.keymap.set("n", "<leader>m", [[<cmd>lua require"telescope.builtin".marks({ mark_type = "global" })<cr>]], {})
-vim.keymap.set("n", "<leader>p", [[<cmd>lua require"telescope".extensions.projects.projects()<cr>]], {})
 vim.keymap.set("n", "<leader>rg", [[<cmd>lua require"telescope.builtin".live_grep()<cr>]], {})
 vim.keymap.set("n", "<leader>*", [[<cmd>lua require"telescope.builtin".grep_string()<cr>]], {})
 
