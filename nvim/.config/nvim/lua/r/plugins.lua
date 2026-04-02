@@ -50,7 +50,7 @@ require('lazy').setup({
   { 'kyazdani42/nvim-web-devicons' },
   { 'mhinz/vim-startify' },
   { 'neovim/nvim-lspconfig' },
-  { 'nvim-treesitter/nvim-treesitter', cmd = 'TSUpdate' },
+  { 'nvim-treesitter/nvim-treesitter', cmd = 'TSUpdate', branch = 'main' },
   {
     'lukas-reineke/indent-blankline.nvim',
     config = function()

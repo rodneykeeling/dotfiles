@@ -116,12 +116,6 @@ vim.lsp.enable('ruff', { capabilities = capabilities, on_attach = on_attach })
 --   },
 -- })
 
--- LSP diagnostics show only on hover
-vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  virtual_text = false,
-  signs = true,
-})
-
 local x = vim.diagnostic.severity
 
 vim.diagnostic.config({
