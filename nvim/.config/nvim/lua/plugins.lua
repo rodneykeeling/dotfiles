@@ -1,53 +1,26 @@
-require('lazy').setup({
-  -- themes/colors
-  { 'norcalli/nvim-colorizer.lua' },
-  { 'catppuccin/nvim' },
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+  local out = vim.fn.system({ 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
+      { out, 'WarningMsg' },
+      { '\nPress any key to exit...' },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
+end
+vim.opt.rtp:prepend(lazypath)
 
-  -- tooling;
-  {
-    'stevearc/dressing.nvim',
-    opts = {},
-  },
-  {
-    'smoka7/hop.nvim',
-    version = '*',
-    opts = {
-      keys = 'etovxqpdygfblzhckisuran',
-    },
-  },
-  -- {
-  --     "folke/which-key.nvim",
-  --     event = "VeryLazy",
-  --     opts = {
-  --         -- your configuration comes here
-  --         -- or leave it empty to use the default settings
-  --         -- refer to the configuration section below
-  --     },
-  --     keys = {
-  --         {
-  --             "<leader>?",
-  --             function()
-  --                 require("which-key").show({ global = false })
-  --             end,
-  --             desc = "Buffer Local Keymaps (which-key)",
-  --         },
-  --     },
-  -- },
-  {
-    'kylechui/nvim-surround',
-    version = '^3.0.0', -- Use for stability; omit to use `main` branch for the latest features
-    event = 'VeryLazy',
-    config = function()
-      require('nvim-surround').setup({
-        -- Configuration here, or leave empty to use defaults
-      })
-    end,
-  },
+require('lazy').setup({
+  { 'catppuccin/nvim' },
   {
     'williamboman/mason.nvim',
     config = function() require('mason').setup() end,
   },
-  { 'kyazdani42/nvim-web-devicons' },
   { 'mhinz/vim-startify' },
   { 'neovim/nvim-lspconfig' },
   { 'nvim-treesitter/nvim-treesitter', cmd = 'TSUpdate', branch = 'main' },
@@ -111,31 +84,6 @@ require('lazy').setup({
     },
   },
   { 'ruanyl/vim-gh-line' },
-  { 'MunifTanjim/nui.nvim' },
-  { 'rcarriga/nvim-notify' },
-  {
-    'folke/noice.nvim',
-    event = 'BufReadPost',
-    config = function()
-      require('noice').setup({
-        cmdline = {
-          format = {
-            search_up = { icon = ' ' },
-            search_down = { icon = ' ' },
-          },
-        },
-        messages = {
-          enabled = false,
-        },
-        notify = {
-          enabled = false,
-        },
-        lsp = {
-          progress = { enabled = false },
-        },
-      })
-    end,
-  },
   {
     'tanvirtin/vgit.nvim',
     lazy = false,
@@ -160,42 +108,72 @@ require('lazy').setup({
     'FabijanZulj/blame.nvim',
     config = function() require('blame').setup() end,
   },
-  { 'nvim-lualine/lualine.nvim' },
-  { 'SmiteshP/nvim-navic' },
-  { 'windwp/nvim-autopairs' },
   {
-    'mrcjkb/rustaceanvim',
-    version = '^6',
-  },
-  { 'mfussenegger/nvim-dap' },
-  { 'rcarriga/nvim-dap-ui' },
-  {
-    'kristijanhusak/vim-dadbod-ui',
-    dependencies = {
-      { 'tpope/vim-dadbod', lazy = true },
-      { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true }, -- Optional
-    },
-    cmd = {
-      'DBUI',
-      'DBUIToggle',
-      'DBUIAddConnection',
-      'DBUIFindBuffer',
-    },
-    init = function()
-      -- Your DBUI configuration
-      vim.g.db_ui_use_nerd_fonts = 1
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+
+    config = function()
+      require('lualine').setup({
+        options = {
+          icons_enabled = true,
+          theme = {
+            normal = { c = { bg = '#24273A' } },
+            inactive = { c = { bg = '#24273A' } },
+          },
+          component_separators = { left = '', right = '' },
+          section_separators = { left = '', right = '' },
+          refresh = {
+            statusline = 100,
+            tabline = 100,
+            winbar = 100,
+          },
+        },
+        sections = {},
+        inactive_sections = {},
+        tabline = {
+          lualine_a = {},
+          lualine_b = {},
+          lualine_c = {
+            { 'filetype', icon_only = true, separator = false, padding = 0 },
+            {
+              'filename',
+              path = 1,
+              symbols = { modified = '●', unnamed = '', readonly = '' },
+              color = { fg = '#da8548' },
+              padding = 1,
+            },
+          },
+          lualine_x = {
+            {
+              'buffers',
+              show_filename_only = true,
+              symbols = {
+                alternate_file = '',
+                unnamed = '',
+              },
+              buffers_color = {
+                active = { bg = '#24273A' },
+                inactive = { fg = '#555555', bg = '#24273A' },
+              },
+            },
+          },
+          lualine_y = {},
+          lualine_z = {},
+        },
+        winbar = {},
+        inactive_winbar = {},
+        extensions = {},
+      })
     end,
   },
+  { 'SmiteshP/nvim-navic' },
+  { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end },
 
   -- completion
   { 'hrsh7th/nvim-cmp' },
   { 'hrsh7th/cmp-nvim-lsp' },
   { 'hrsh7th/cmp-buffer' },
   { 'hrsh7th/cmp-path' },
-  { 'hrsh7th/cmp-vsnip' },
-  { 'hrsh7th/vim-vsnip' },
-  { 'hrsh7th/vim-vsnip-integ' },
-  { 'rafamadriz/friendly-snippets' },
 
   -- telescope + deps
   { 'nvim-lua/popup.nvim' },
