@@ -73,12 +73,13 @@ vim.g.startify_list_order = {
 }
 vim.g.startify_bookmarks = {
   '~/.config/nvim/init.lua',
-  '~/.config/nvim/lua/r/completion.lua',
-  '~/.config/nvim/lua/r/lsp.lua',
-  '~/.config/nvim/lua/r/plugins.lua',
-  '~/.config/nvim/lua/r/settings.lua',
-  '~/.config/nvim/lua/r/telescope.lua',
-  '~/.config/nvim/lua/r/treesitter.lua',
+  '~/.config/nvim/lua/completion.lua',
+  '~/.config/nvim/lua/keymaps.lua',
+  '~/.config/nvim/lua/lsp.lua',
+  '~/.config/nvim/lua/nvim-telescope.lua',
+  '~/.config/nvim/lua/plugins.lua',
+  '~/.config/nvim/lua/settings.lua',
+  '~/.config/nvim/lua/treesitter.lua',
   '~/.config/zsh/.zshrc',
   '~/.config/zsh/.zsh_history',
 }

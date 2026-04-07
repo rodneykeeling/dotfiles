@@ -23,7 +23,7 @@ require('lazy').setup({
   },
   { 'mhinz/vim-startify' },
   { 'neovim/nvim-lspconfig' },
-  { 'nvim-treesitter/nvim-treesitter', cmd = 'TSUpdate', branch = 'main' },
+  { 'nvim-treesitter/nvim-treesitter', cmd = 'TSUpdate', branch = 'main', lazy = false },
   {
     'lukas-reineke/indent-blankline.nvim',
     config = function()

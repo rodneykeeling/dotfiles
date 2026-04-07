@@ -7,6 +7,10 @@ vim.keymap.set('n', '`', '^', { desc = 'Go to beginning of line' })
 vim.keymap.set('n', 'n', 'nzz', { desc = 'Center screen on next search result' })
 vim.keymap.set('n', 'N', 'Nzz', { desc = 'Center screen on prev search result' })
 
+-- Treesitter
+vim.keymap.set('x', '+', 'an', { remap = true, desc = 'Increment selection (outer node)' })
+vim.keymap.set('x', '_', 'in', { remap = true, desc = 'Decrement selection (inner node)' })
+
 vim.keymap.set('n', '<leader>d', '<cmd>lua vim.lsp.buf.definition()<cr>', { desc = 'LSP goto definition' })
 vim.keymap.set('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<cr>', { desc = 'LSP diagnostic' })
 vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', { desc = 'LSP code action' })
